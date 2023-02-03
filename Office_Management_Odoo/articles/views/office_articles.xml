@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <menuitem
+        id="office_management_employee"
+        name="Office Employees"
+        sequence="0"/>
+
+    <menuitem
+        id="office_management_employee_"
+        name="name"
+        sequence="10"/>
+    
+
+<!-- lower sequence number higher is the order -->
+<!-- menu will only appear when liked with actions -->
+<!-- to create submenus the id should be unique in menuitem and parent tag will correspond to id of base menuitem -->
+</odoo>

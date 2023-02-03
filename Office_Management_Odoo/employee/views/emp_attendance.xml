@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- emp attendance tree view -->
+
+    <record id="employee_attendance_view_tree" model="ir.ui.view">
+        <field name="name">employee_attendance.view.tree</field>
+        <field name="model">employee.attendance</field>
+        <field name="arch" type="xml">
+            <tree string="employee_attendance_tree_view">
+                    <field name="emp_name_id"></field>
+                    <!-- <field name="today_date"></field> -->
+                    <field name="check_in_time"></field>
+                    <field name="employee_status"></field>
+            </tree>
+        </field>
+    </record>
+
+    <!-- emp attendance from view -->
+
+    <record id="employee_attendance_view_form" model="ir.ui.view">
+        <field name="name">employee_attendance.view.form</field>
+        <field name="model">employee.attendance</field>
+        <field name="arch" type="xml">
+            <form string="employee attendance form view">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="emp_name_id"></field>
+                            <field name="check_in_time"></field>
+                        </group>
+                        <!-- <field name="today_date"></field> -->
+                        <group>
+                            <field name="employee_status"></field>
+                            <field name="age"></field>
+                            <field name="department"></field>
+                            <field name="gender"></field>
+                        </group>
+                    </group>
+                </sheet>
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+                
+            </form>
+        </field>
+    </record>
+
+    <!-- this defines an action and to add action to a menu or any element just past id of this action to action tag -->
+    <record id="action_employee_attendance" model="ir.actions.act_window">
+        <field name="name">Employees Attendance</field>
+
+        <!-- this name displayes when the menu is opened -->
+        <field name="type">ir.actions.act_window</field>
+        
+        <!-- this is the type of action when a window is opened -->
+        <field name="res_model">employee.attendance</field>
+        
+        <!-- this is a model that linkes to action -->
+        <field name="view_mode">tree,form</field>
+        
+        <!-- this defines what view types we have to consider for the element -->
+        <field name="context">{}</field>
+        
+        <!-- this is a python dictionary which gives action to particular modules defined -->
+
+        <!-- this is for help when there is no field this is appear -->
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create first employee attendance ! 
+            </p>
+        </field>
+    </record>
+
+</odoo>

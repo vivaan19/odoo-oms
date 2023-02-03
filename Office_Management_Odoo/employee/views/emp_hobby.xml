@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- form view -->
+
+    <record id="employee_hobby_view_form" model="ir.ui.view">
+        <field name="name">employee_hobby.view.form</field>
+        <field name="model">employee.hobby</field>
+        <field name="arch" type="xml">
+            <form string="employee_hobby">
+                <sheet>
+                    <group>
+                        <field name="hobbies"></field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- tree view -->
+
+    <record id="employee_hobby_view_tree" model="ir.ui.view">
+        <field name="name">employee.hobby.view.tree</field>
+        <field name="model">employee.hobby</field>
+        <field name="arch" type="xml">
+            <tree string="employee_hobby_tree_view">
+                <field name="hobbies"></field>
+            </tree>
+        </field>
+    </record>
+
+    <!-- action -->
+
+    <record id="action_employee_hobby" model="ir.actions.act_window">
+        <field name="name">Employees Hobby</field>
+        <!-- this name displayes when the menu is opened -->
+        <field name="type">ir.actions.act_window</field>
+        <!-- this is the type of action when a window is opened -->
+        <field name="res_model">employee.hobby</field>
+        <!-- this is a model that linkes to action -->
+        <field name="view_mode">tree,form</field>
+        <!-- this defines what view types we have to consider for the element -->
+        <field name="context">{}</field>
+        <!-- this is a python dictionary which gives action to particular modules defined -->
+
+        <!-- this is for help when there is no field this is appear -->
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create first employee hobby !  
+            </p>
+        </field>
+    </record>
+
+</odoo>
