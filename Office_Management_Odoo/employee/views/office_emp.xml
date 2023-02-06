@@ -17,19 +17,21 @@
         </field>
     </record>
 
+
+
     <!-- this is a form view always put underscores in id attribute of record tag -->
     <record id="office_employee_view_form" model="ir.ui.view">
         <field name="name">office.employee.view.form</field>
         <field name="model">office.employee</field>
         <field name="arch" type="xml">
-            
+
             <!-- name attribute of field tag should contain fields of model -->
             <!-- this is tag which odoo will consider for form view -->
             <!-- in order to define field lables the fields should be inside group tag -->
             <!-- sheet tag creates a border around the view -->
 
             <form string="Office_Employee_Form_View">
-                
+
                 <sheet>
                     <group>
                         <group>
@@ -72,7 +74,7 @@
                                     <field name="emp_hobby" widget="many2many_tags" icon="fa-solid fa-teddy-bear"></field>
                                 </group>
                             </form>
-                                
+
                         </page>
 
                     </notebook>
@@ -88,13 +90,15 @@
         </field>
     </record>
 
+
+
     <!-- this is search view -->
     <record id="office_employee_view_search" model="ir.ui.view">
         <field name="name">office_employee.view.search</field>
         <field name="model">office.employee</field>
         <field name="arch" type="xml">
             <search string="office_employee_search_view">
-                
+
                 <field name="name" filter_domain="['|', ('name', 'ilike', self)]"></field>
                 <field name="age"></field>
                 <field name="department"></field>
@@ -103,7 +107,7 @@
                 <!-- in domain attribute after selecting field type (here department) and operator (here =) define the keys not values -->
                 <!-- use markup of < and > as &lt; and &gt; -->
 
-                
+
                 <!-- department filtering -->
                 <filter name="Director" domain="[('department', '=', 'director')]" />
                 <filter name="Oracle" domain="[('department', '=', 'oracle')]" />
@@ -111,7 +115,7 @@
                 <filter name="Sales" domain="[('department', '=', 'sales')]" />
                 <filter name="Admin" domain="[('department', '=', 'admin')]" />
                 <filter name="Helper" domain="[('department', '=', 'helper')]" />
-                
+
                 <separator/>
                 <!-- add a seperator between two fields to perform and operations -->
                 <!-- gender filtering -->
@@ -120,7 +124,7 @@
                 <filter name="Others" domain="[('gender', '=', 'others')]" />
 
                 <separator/>
-                
+
                 <!-- age filtering -->
                 <!-- <filter name="Age less than 30" domain="[('age', '&lt;=', 30)]" />
                 <filter name="Age greater than 30" domain="[('age', '&gt;', 30)]" /> -->
@@ -137,8 +141,8 @@
 
                     <filter name="group_by_gender" string="Gender" context="{'group_by': 'gender'}" />
                     <filter name="group_by_department" string="Department" context="{'group_by': 'department'}" />
-                    <!-- <filter name="group_by_active" string="Archived"  domain="[('active', '=', False)]" context="{'group_by': 'active'}"/> -->
-                    
+                    <!-- <filter name="group_by_active" string="Archived" domain="[('active', '=', False)]" context="{'group_by': 'active'}"/> -->
+
                 </group>
 
                 <searchpanel>
@@ -150,19 +154,58 @@
         </field>
     </record>
 
-    <record id="model_name_view_kanban" model="ir.ui.view">
-        <field name="name">model_name.view.kanban</field>
-        <field name="model"></field>
+    <!-- Kanban view -->
+
+    <record id="office_employee_view_kanban" model="ir.ui.view">
+        <field name="name">office_employee.view.kanban</field>
+        <field name="model">office.employee</field>
         <field name="arch" type="xml">
             <kanban>
+                <field name="name"></field>
+                <field name="age"></field>
+                <field name="department"></field>
+                <field name="gender"></field>
+                <field name="b_date"></field>
+                <field name="emp_hobby"></field>
                 <templates>
                     <t t-name="kanban-box">
-                        
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li>
+                                Name: <field name="name" />
+                                    </li>
+
+                                    <li>
+                                Age: <field name="age" />
+                                    </li>
+
+                                    <li>
+                                Department: <field name="department" />
+                                    </li>
+
+                                    <li>
+                                Gender: <field name="gender" />
+                                    </li>
+
+
+                                    <li>
+                                Birthdate: <field name="b_date" />
+                                    </li>
+
+
+                                    <li>
+                                Hobby: <field name="emp_hobby" />
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </t>
                 </templates>
             </kanban>
         </field>
     </record>
+
 
 
     <!-- this defines an action and to add action to a menu or any element just past id of this action to action tag -->
@@ -172,15 +215,15 @@
 
         <field name="type">ir.actions.act_window</field>
         <!-- this is the type of action when a window is opened -->
-        
+
         <field name="res_model">office.employee</field>
         <!-- this is a model that linkes to action -->
-        
-        <field name="view_mode">tree,form</field>
+
+        <field name="view_mode">tree,form,kanban</field>
         <!-- this defines what view types we have to consider for the element -->
-        
+
         <!-- <field name="context">{'search_default_Male':1}</field> -->
-        <field name="context">{}</field>    
+        <field name="context">{}</field>
 
         <!-- when defining default search view with filters and groupby -->
         <!-- syntax: search_default_<filter_name or groupby_name>:1 -->
@@ -204,13 +247,14 @@
         <field name="domain">[('gender', '=', 'female')]</field>
 
         <field name="context">{'default_gender':'female', 'default_company_name':'BeyonData'}</field>
-        
+
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 Create first female employee ! 
             </p>
         </field>
     </record>
+
 
     <!-- defines action of male employee with domain and context -->
     <record id="office_employee_male_action" model="ir.actions.act_window">

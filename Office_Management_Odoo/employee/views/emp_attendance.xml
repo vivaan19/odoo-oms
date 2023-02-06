@@ -49,6 +49,27 @@
         </field>
     </record>
 
+    <!-- search view -->
+
+    <record id="employee_attendance_view_search" model="ir.ui.view">
+        <field name="name">employee_attendance.view.search</field>
+        <field name="model">employee.attendance</field>
+        <field name="arch" type="xml">
+            <search string="emp_attendance_search_view">
+                <field name="emp_name_id" filter_domain="['|', ('name', 'ilike', self)]"></field>
+                <field name="department"></field>
+                <field name="gender"></field>
+
+                <searchpanel>
+
+                    <field name="employee_status" enable_counters="1" icon="fas fa-user"></field>
+                    <field name="gender" enable_counters="1" icon="fa-soild fa-users"></field>
+                    <field name="department" enable_counters="1" icon="fa-solid fa-briefcase"></field>
+
+                </searchpanel>
+            </search>
+        </field>
+    </record>
     <!-- this defines an action and to add action to a menu or any element just past id of this action to action tag -->
     <record id="action_employee_attendance" model="ir.actions.act_window">
         <field name="name">Employees Attendance</field>
