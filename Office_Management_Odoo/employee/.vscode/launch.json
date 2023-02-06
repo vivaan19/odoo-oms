@@ -9,11 +9,11 @@
             "type": "python",
             "request": "launch",
             "stopOnEntry": false,
-            "program": "V:/Odoo/server/odoo-bin",
+            "program": "/home/hac/workspace/odoo16/odoo/odoo-bin",
             "console": "integratedTerminal",
             "justMyCode": true,
             "args": [
-                "--database=oms_30_01",
+                "--database=oms_06_02",
                 "--dev=reload",
                 "--dev=xml",
                 "-u", 
