@@ -28,12 +28,13 @@
                         <group>
                             <field name="emp_name_id"></field>
                             <field name="check_in_time"></field>
+                            <field name="department"></field>
                         </group>
                         <!-- <field name="today_date"></field> -->
                         <group>
                             <field name="employee_status"></field>
+                            <field name="emp_reason" placeholder="Reason for absent" attrs="{'invisible':[('employee_status', '=', 'present')]}"></field>
                             <field name="age"></field>
-                            <field name="department"></field>
                             <field name="gender"></field>
                         </group>
                     </group>
@@ -84,7 +85,7 @@
         <field name="view_mode">tree,form</field>
         
         <!-- this defines what view types we have to consider for the element -->
-        <field name="context">{}</field>
+        <field name="context">{'default_employee_status':'present'}</field>
         
         <!-- this is a python dictionary which gives action to particular modules defined -->
 

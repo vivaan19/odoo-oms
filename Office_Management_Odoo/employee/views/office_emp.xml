@@ -42,7 +42,7 @@
                         <group>
                             <field name="department" icon="fa-solid fa-briefcase"></field>
                             <field name="gender" icon="fa-duotone fa-person-half-dress"></field>
-                            <field name="active" invisible="true"></field>
+                            <field name="active" invisible="true"></field> 
                         </group>
                     </group>
 
@@ -141,7 +141,7 @@
 
                     <filter name="group_by_gender" string="Gender" context="{'group_by': 'gender'}" />
                     <filter name="group_by_department" string="Department" context="{'group_by': 'department'}" />
-                    <!-- <filter name="group_by_active" string="Archived" domain="[('active', '=', False)]" context="{'group_by': 'active'}"/> -->
+                    <filter name="group_by_active" string="Archived" domain="[('active', '=', False)]" context="{'group_by': 'active'}"/>
 
                 </group>
 

@@ -26,6 +26,8 @@ class EmployeeAttendance(models.Model):
         required=True
     )
 
+    emp_reason = fields.Text(string="Reason", required=True)
+
     age = fields.Char("Employee Age", default="", required=True)
 
     department = fields.Selection(
@@ -43,9 +45,17 @@ class EmployeeAttendance(models.Model):
         
     
     @api.onchange('emp_name_id')
-
     def _onchange_emp_name_id(self):
         self.age = self.emp_name_id.age
         self.department = self.emp_name_id.department
         self.gender = self.emp_name_id.gender
+    
+    # @api.onchange('employee_status')
+    # def _onchange_employee_status(self):
+    #     if self.employee_status == 'absent':
+    #         self.emp_reason = "u r absent"
+    #     else:
+    #         self.emp_reason = ""
+
+    
 

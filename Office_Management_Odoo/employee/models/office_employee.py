@@ -1,4 +1,3 @@
-from email.policy import default
 from odoo import fields, models 
 from datetime import datetime, date
 
@@ -64,7 +63,7 @@ class EmployeeMoreDetails(models.Model):
     _name = "employee.more.details"
     _description = "This model will be used as one to many"
 
-    company_name = fields.Char("Company Name")
+    company_name = fields.Char("Company Name", default="BeyonData")
 
     work_phone = fields.Char(string = "Work Mobile Number")
 

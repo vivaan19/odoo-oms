@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="employee_join_view_form" model="ir.ui.view">
+        <field name="name">employee_join.view.form</field>
+        <field name="model">employee.join</field>
+        <field name="arch" type="xml">
+            <form string="employee_join_form_view">
+                <sheet>
+                <group>
+                    <group>
+                        <field name="name"></field>
+                        <field name="department"></field>
+                        <field name="gender"></field>
+                    </group>
+
+                    <group>
+                        <field name="age"></field>
+                        <field name="b_date"></field>
+                        <field name="active" invisible="true"></field>
+                        <field name="upload_res" filename="upload_res_name"></field>
+                        <field name="upload_res_name" invisible="true"></field>
+                    </group>
+                    </group>
+                </sheet>
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+
+            </form>
+        </field>
+    </record>
+
+    <!-- tree view -->
+    <record id="employee_join_view_tree" model="ir.ui.view">
+        <field name="name">employee_join.view.tree</field>
+        <field name="model">employee.join</field>
+        <field name="arch" type="xml">
+            <tree string="emp_join_tree_view">
+                <field name="name"></field>
+                <field name="age"></field>
+                <field name="department"></field>
+                <field name="gender"></field>
+            </tree>
+        </field>
+    </record>
+
+    <!-- action -->
+    <record id="employee_join_action" model="ir.actions.act_window">
+        <field name="name">Employee Recruiment</field>
+        <field name="res_model">employee.join</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Register your details !  
+            </p>
+        </field>
+    </record>
+
+</odoo>

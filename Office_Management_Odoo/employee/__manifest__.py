@@ -13,6 +13,7 @@
         'views/emp_attendance.xml', 
         # 'menu/office_employee_menu.xml',
         'views/emp_hobby.xml',
+        'views/emp_join.xml',
     ],
 
     'demo' : [],

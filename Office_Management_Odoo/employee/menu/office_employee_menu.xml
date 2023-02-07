@@ -54,6 +54,19 @@
         action="employee.action_employee_hobby"
         parent="employee"
         sequence="0"/>
+    
+    <menuitem
+        id="employee_join_menu"
+        name="Employee Recruiment"
+        parent="employee"
+        sequence="0"/>
+    
+    <menuitem
+        id="employee_join_menu_apply"
+        name="Apply Now"
+        action="employee.employee_join_action"
+        parent="employee_join_menu"
+        sequence="10"/>
 
     
 <!-- lower sequence number higher is the order -->
