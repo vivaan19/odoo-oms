@@ -16,7 +16,7 @@
                 "--config=/home/hac/workspace/odoo16/odoo/debian/odoo.conf",
                 "-p",
                 "8888",
-                "--database=oms_06_02",
+                "--database=oms_08_02",
                 "--dev=xml",
                 "-u",
                 "employee", 

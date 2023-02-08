@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- form view -->
+    <record id="candidate_applied_view_form" model="ir.ui.view">
+        <field name="name">candidate_applied.view.form</field>
+        <field name="model">candidate.applied</field>
+        <field name="arch" type="xml">
+            <form string="candidate_applied_form_view">
+
+                <!-- this is a status bar which is used for current status of a candidate -->
+                <!-- before sheet after form tag is stausbar section -->
+
+                <header>
+                    <field name="state" widget="statusbar" options="{'clickable':'1'}"></field>
+                    <button string="SELECT" name="emp_status_select" type="object" class="oe_highlight"/>
+                    <button string="NOT SELECT" name="emp_status_not_select" type="object" class="oe_highlight"/>
+                </header>
+
+                <sheet>
+                    <!-- this is the priority which is the stars -->
+                    <div class="oe_title">
+                        <h1>
+                            <field name="priority" widget="priority" class="mr-3"></field>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="can_applied"></field>
+                            <field name="age"></field>
+                            <field name="department"></field>
+                            <field name="gender"></field>
+                        </group>
+
+                        <group>
+                            <field name="upload_res_name" invisible="true"></field>
+                            <field name="upload_res" filename="upload_res_name"></field>
+                            <field name="selection_staus"></field>
+                        </group>
+                    </group>
+                </sheet>
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+
+            </form>
+        </field>
+    </record>
+
+
+    <!-- tree view -->
+    <record id="candidate_applied_view_tree" model="ir.ui.view">
+        <field name="name">candidate_applied.view.tree</field>
+        <field name="model">candidate.applied</field>
+        <field name="arch" type="xml">
+            <tree string="candidate_applied_tree_view">
+                <field name="can_applied"></field>
+                <field name="priority"></field>
+                <field name="age"></field>
+                <field name="department"></field>
+                <field name="gender"></field>
+                <!-- <field name="upload_res"></field> -->
+                <field name="selection_staus" widget="badge"></field>
+                <field name="state" widget="badge" decoration-muted="state=='resume_recieved'"  decoration-danger="state=='not_selected'" decoration-info="state=='wrritten_round'" decoration-primary="state=='technical_interview'" decoration-bf="state=='hr_interview'" decoration-success="state=='onboarding'"></field>
+            </tree>
+        </field>
+    </record>
+
+    <!-- action for menu applied candidates -->
+    <record id="candidate_applied_action" model="ir.actions.act_window">
+        <field name="name">Review Candidates</field>
+        <field name="res_model">candidate.applied</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No candidates still applied to any job ! 
+            </p>
+        </field>
+    </record>
+
+
+</odoo>

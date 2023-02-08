@@ -46,11 +46,11 @@
                 <field name="gender"></field>
             </tree>
         </field>
-    </record>
+    </record>    
 
-    <!-- action -->
+    <!-- action for menu apply now -->
     <record id="employee_join_action" model="ir.actions.act_window">
-        <field name="name">Employee Recruiment</field>
+        <field name="name">Apply Now</field>
         <field name="res_model">employee.join</field>
         <field name="view_mode">tree,form,kanban</field>
         <field name="domain">[]</field>
@@ -62,4 +62,5 @@
         </field>
     </record>
 
+    
 </odoo>

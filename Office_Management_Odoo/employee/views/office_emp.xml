@@ -42,14 +42,22 @@
                         <group>
                             <field name="department" icon="fa-solid fa-briefcase"></field>
                             <field name="gender" icon="fa-duotone fa-person-half-dress"></field>
-                            <field name="active" invisible="true"></field> 
+                            
+                            <!-- these are two buttons that are used to view different things of same model -->
+                            <button string="Female Employee" name="%(employee.office_employee_female_action)d" confirm="Are u sure want to view female employee ?" help="By clicking this button you will see female employee" type="action" class="oe_highlight"/>
+                            <button string="Male Employee" name="%(employee.office_employee_male_action)d" type="action" class="oe_highlight"/>
+                            
+                            <field name="active" invisible="true"></field>
                         </group>
                     </group>
 
                     <notebook>
                         <page name="employee_work_info_company" string="Company Information">
                             <field name="employee_more_details">
-                                <tree editable="bottom">
+                                <tree editable="bottom" widget='section_and_note_one2many'>
+                                    <control>
+                                        <create string='Add more detail'/>
+                                    </control>
                                     <field name="company_name" icon="fa-solid fa-buildings"></field>
                                     <field name="work_location" icon="fa-solid fa-location-dot"></field>
                                     <field name="work_phone" icon="fa-solid fa-phone-volume"></field>

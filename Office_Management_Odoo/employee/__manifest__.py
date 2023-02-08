@@ -7,13 +7,15 @@
     'author': "Vivaan",
     'category': 'Category',
     'data' : [
+        # always load security, views, menu
         'security/ir.model.access.csv',
         'views/office_emp.xml',
-        'menu/office_employee_menu.xml',
         'views/emp_attendance.xml', 
         # 'menu/office_employee_menu.xml',
         'views/emp_hobby.xml',
         'views/emp_join.xml',
+        'views/candidate_review.xml',
+        'menu/office_employee_menu.xml',
     ],
 
     'demo' : [],

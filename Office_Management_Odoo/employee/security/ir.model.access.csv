@@ -4,3 +4,4 @@ employee.access_employee_attendance,access_employee_attendance,employee.model_em
 employee.access_employee_more_details,access_employee_more_details,employee.model_employee_more_details,base.group_user,1,1,1,1
 access_employee_hobby_user,access.employee.hobby,model_employee_hobby,base.group_user,1,1,1,1
 employee.access_employee_join,access_employee_join,employee.model_employee_join,base.group_user,1,1,1,1
+employee.access_candidate_applied,access_candidate_applied,employee.model_candidate_applied,base.group_user,1,1,1,1

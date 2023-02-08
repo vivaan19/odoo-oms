@@ -26,7 +26,7 @@ class EmployeeAttendance(models.Model):
         required=True
     )
 
-    emp_reason = fields.Text(string="Reason", required=True)
+    emp_reason = fields.Text(string="Reason")
 
     age = fields.Char("Employee Age", default="", required=True)
 

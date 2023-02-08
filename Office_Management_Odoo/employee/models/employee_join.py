@@ -1,27 +1,30 @@
 from datetime import date
-from odoo import fields, models     
+from odoo import fields, models, api
+
 
 class EmployeeJoin(models.Model):
     _name = "employee.join"
-    _description = "this model is for employee recruitment"
+    _description = "Model for candidates to apply for a job"
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char(string="Candidate Name", required=True)
 
-    age = fields.Char("Employee Age", compute="_compute_age", default="Not Specified birthdate", tracking=True)
+    age = fields.Char("Employee Age", compute="_compute_age",
+                      default="Not Specified birthdate", tracking=True)
 
     department = fields.Selection(
-        string = 'Applying to',
-        selection = [('sales', 'Sales'), ('admin', 'Admin'),('odoo', 'Odoo'), ('oracle', 'Oracle'), 
-        ('helper', 'Helper'), ('director', 'Director')],
+        string='Applying to',
+        selection=[('sales', 'Sales'), ('admin', 'Admin'), ('odoo', 'Odoo'), ('oracle', 'Oracle'),
+                   ('helper', 'Helper'), ('director', 'Director')],
         help='This is for selection of departments in an office',
         required=True,
         tracking=True
     )
 
     gender = fields.Selection(
-        string = 'Gender',
-        selection = [('male', 'Male'), ('female', 'Female'), ('others', 'Others')],
+        string='Gender',
+        selection=[('male', 'Male'), ('female', 'Female'),
+                   ('others', 'Others')],
         required=True,
         tracking=True
     )
@@ -29,11 +32,11 @@ class EmployeeJoin(models.Model):
     # add an active field if the record archived active would be false, and unarchive active will be true
     # active is reserved keyword and will add archive and unarchive in actions menu
 
-    active = fields.Boolean(string = 'Active', default=True)
+    active = fields.Boolean(string='Active', default=True)
 
-    # date time field for employee birthdate 
+    # date time field for employee birthdate
 
-    b_date = fields.Date(string = "Birthdate", tracking=True)
+    b_date = fields.Date(string="Birthdate", tracking=True)
 
     upload_res = fields.Binary(string="Upload Resume", required=True)
     upload_res_name = fields.Char()
@@ -45,8 +48,89 @@ class EmployeeJoin(models.Model):
                 emp.age = today.year - emp.b_date.year
             else:
                 emp.age = "Birthdate not specified"
-    
-    
 
 
-    
+class CandidateApplied(models.Model):
+    _name = "candidate.applied"
+    _description = "This model allows to review candidates"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+
+    _rec_name = "can_applied"
+
+    can_applied = fields.Many2one("employee.join", string="Name")
+
+    age = fields.Char(
+        "Age", default="Not Specified birthdate", tracking=True)
+
+    department = fields.Selection(
+        string='Applying to',
+        selection=[('sales', 'Sales'), ('admin', 'Admin'), ('odoo', 'Odoo'), ('oracle', 'Oracle'),
+                   ('helper', 'Helper'), ('director', 'Director')],
+        help='This is for selection of departments in an office',
+        required=True,
+        tracking=True
+    )
+
+    gender = fields.Selection(
+        string='Gender',
+        selection=[('male', 'Male'), ('female', 'Female'),
+                   ('others', 'Others')],
+        required=True,
+        tracking=True
+    )
+
+    upload_res = fields.Binary(string="Uploaded Resume", required=True)
+    upload_res_name = fields.Char(default="file")
+
+    selection_staus = fields.Selection(
+        string="Selection Status", 
+        selection=[
+            ('selected', 'Selected'),
+            ('not_selected', 'Not Selected'),
+        ],
+        required=True,      
+        tracking = True
+    )
+
+    priority = fields.Selection(
+        [('0', 'Poor'),
+        ('1', 'Below Average'),
+        ('2', 'Average'),
+        ('3', 'Good'),
+        ('4', 'Very Good'),
+        ('5', 'Excellent')], string="Priority"
+    )
+
+    state = fields.Selection(
+        [
+            ('resume_recieved','Resume Recieved'),
+            ('wrritten_round','Wrritten Round'),
+            ('technical_interview','Technical Interview'),
+            ('hr_interview','HR Interview'),
+            ('not_selected','Not Selected'),
+            ('onboarding','Onboarding')
+        ],
+
+        string="Status",
+        default = "resume_recieved",
+        required=True
+    )
+
+    @api.onchange('can_applied')
+    def _onchange_can_applied(self):
+        self.age = self.can_applied.age
+        self.department = self.can_applied.department
+        self.gender = self.can_applied.gender
+        self.upload_res = self.can_applied.upload_res
+        self.upload_res_name = self.can_applied.upload_res_name
+
+    def emp_status_select(self):
+        return {
+            'effect': {
+                'fadeout':'slow',
+                'message':'Candidate Selected !!!',
+                'type': 'rainbow_man',
+            }
+        }
+    def emp_status_not_select(self):
+        pass

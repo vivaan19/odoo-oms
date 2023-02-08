@@ -30,17 +30,16 @@
         action="employee.office_employee_female_action"
         parent="employee_details"
         sequence="0"/>
-    
-    
+
+    <!-- 2nd level of second child : male employees -->
     <menuitem
         id="employee_detail_list_male"
         name="Male Employee"
         action="employee.office_employee_male_action"
         parent="employee_details"
         sequence="1"/>
-    
-    
-    
+
+    <!-- employee attendance menu -->
     <menuitem
         id="employee_attendance_menu"
         name="Employee Attendance"
@@ -48,13 +47,15 @@
         parent="employee"
         sequence="0"/>
 
+    <!-- employee hobby menu -->
     <menuitem
         id="employee_hobby_menu"
         name="Employee Hobby"
         action="employee.action_employee_hobby"
         parent="employee"
         sequence="0"/>
-    
+
+    <!-- recruitment menu -->
     <menuitem
         id="employee_join_menu"
         name="Employee Recruiment"
@@ -67,6 +68,14 @@
         action="employee.employee_join_action"
         parent="employee_join_menu"
         sequence="10"/>
+    
+    <menuitem
+        id="employee_join_menu_candidates_apply"
+        name="Review Candidates"
+        action="employee.candidate_applied_action"      
+        parent="employee_join_menu"
+        sequence="10"/>
+    
 
     
 <!-- lower sequence number higher is the order -->
