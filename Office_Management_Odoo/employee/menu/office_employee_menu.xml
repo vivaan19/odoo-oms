@@ -69,7 +69,7 @@
     name="Apply Now"
     action="employee.employee_join_action"
     parent="employee_join_menu"
-    sequence="10"
+    sequence="2"
   />
     
     <menuitem
@@ -77,7 +77,15 @@
     name="Review Candidates"
     action="employee.candidate_applied_action"
     parent="employee_join_menu"
-    sequence="10"
+    sequence="3"
+  />
+    
+    <menuitem
+    id="department_desc_job_posting"
+    name="Post a job"
+    action=""
+    parent="employee_join_menu"
+    sequence="1"
   />
     
 

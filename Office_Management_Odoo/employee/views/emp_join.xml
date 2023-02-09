@@ -7,28 +7,25 @@
         <field name="arch" type="xml">
             <form string="employee_join_form_view">
                 <sheet>
-                <group>
                     <group>
-                        <field name="name" />
-                        <field name="department" />
-                        <field name="gender" />
-                    </group>
+                        <group>
+                            <field name="name" />
+                            <field name="department" />
+                            <field name="gender" />
+                        </group>
 
-                    <group>
-                        <field name="age" />
-                        <field name="b_date" />
-                        <field name="active" invisible="true" />
-                        <field name="upload_res" filename="upload_res_name" />
-                        <field name="upload_res_name" invisible="true" />
-                    </group>
+                        <group>
+                            <field name="age" />
+                            <field name="b_date" />
+                            <field name="active" invisible="true" />
+                            <field name="upload_res" filename="upload_res_name" />
+                            <field name="upload_res_name" invisible="true" />
+                        </group>
                     </group>
                 </sheet>
 
                 <div class="oe_chatter">
-                    <field
-            name="message_follower_ids"
-            widget="mail_followers"
-          />
+                    <field name="message_follower_ids" widget="mail_followers" />
                     <field name="activity_ids" widget="mail_activity" />
                     <field name="message_ids" widget="mail_thread" />
                 </div>
@@ -49,7 +46,7 @@
                 <field name="gender" />
             </tree>
         </field>
-    </record>    
+    </record>
 
     <!-- action for menu apply now -->
     <record id="employee_join_action" model="ir.actions.act_window">
@@ -65,5 +62,54 @@
         </field>
     </record>
 
-    
+
+    <!-- tree view for department desc for job posting -->
+    <record id="department_desc_view_tree" model="ir.ui.view">
+        <field name="name">department_desc.view.tree</field>
+        <field name="model">department.desc</field>
+        <field name="arch" type="xml">
+            <tree string="department_desc_job_posting">
+                    <field name="dept_name"></field>
+                    <!-- <field name="dept_job_desc"></field> -->
+                    <field name="dept_exp"></field>
+                    <field name="dept_job_type"></field>
+            </tree>
+        </field>
+    </record>
+
+    <!-- form view for department.desc - job posting -->
+    <record id="department_desc_view_form" model="ir.ui.view">
+        <field name="name">department_desc.view.form</field>
+        <field name="model">department.desc</field>
+        <field name="arch" type="xml">
+            <form string="Department_desc_job_posting">
+                <sheet>
+                    <group>
+                        <field name="dept_name"></field>
+                        <field name="dept_job_type"></field>
+                        <field name="dept_exp"></field>
+                    </group>
+
+                    <group>
+                        <field name="dept_job_dec"></field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- action for model  department.desc which defines job posting-->
+    <record id="department_desc_action" model="ir.actions.act_window">
+        <field name="name">Job Posting</field>
+        <field name="res_model">department.desc</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create first job posing !  
+            </p>
+        </field>
+    </record>
+
 </odoo>

@@ -134,3 +134,40 @@ class CandidateApplied(models.Model):
         }
     def emp_status_not_select(self):
         pass
+
+class DepartmentDesc(models.Model):
+    _name = "department.desc"
+    _description = "Number of departments in office"
+    _rec_name = "dept_name"
+
+    # department name to be added 
+    dept_name = fields.Selection(
+        string = 'Add department',
+        selection = [('sales', 'Sales'), ('admin', 'Admin'),('odoo', 'Odoo'), ('oracle', 'Oracle'), 
+        ('helper', 'Helper'), ('director', 'Director')],
+        help='This is for selection of departments in an office',
+        required=True,
+        # tracking=True
+    )
+
+    # department job description
+    dept_job_dec = fields.Html("Job Description", required=True)
+
+    # years of experience required
+    dept_exp = fields.Selection("Experience Required", selection=[
+        ('zero_to_one', '0-1'),
+        ('two_three', '2-3'),
+        ('three_five', '3-5'),
+        ('more_than_five', '>5'),
+    ]
+    ,required=True)
+
+    # job type
+    dept_job_type = fields.Selection("Job type", selection=[
+        ('intern', 'Intership'),
+        ('full_time', 'Full Time'),
+        ('wfh', 'Work from Home'),
+    ],
+    required=True)
+
+
