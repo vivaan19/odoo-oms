@@ -83,7 +83,7 @@
     <menuitem
     id="department_desc_job_posting"
     name="Post a job"
-    action=""
+    action="employee.department_desc_action"
     parent="employee_join_menu"
     sequence="1"
   />

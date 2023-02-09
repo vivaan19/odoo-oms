@@ -83,36 +83,36 @@ class CandidateApplied(models.Model):
     upload_res_name = fields.Char(default="file")
 
     selection_staus = fields.Selection(
-        string="Selection Status", 
+        string="Selection Status",
         selection=[
             ('selected', 'Selected'),
             ('not_selected', 'Not Selected'),
         ],
-        required=True,      
-        tracking = True
+        required=True,
+        tracking=True
     )
 
     priority = fields.Selection(
         [('0', 'Poor'),
-        ('1', 'Below Average'),
-        ('2', 'Average'),
-        ('3', 'Good'),
-        ('4', 'Very Good'),
-        ('5', 'Excellent')], string="Priority"
+         ('1', 'Below Average'),
+         ('2', 'Average'),
+         ('3', 'Good'),
+         ('4', 'Very Good'),
+         ('5', 'Excellent')], string="Priority"
     )
 
     state = fields.Selection(
         [
-            ('resume_recieved','Resume Recieved'),
-            ('wrritten_round','Wrritten Round'),
-            ('technical_interview','Technical Interview'),
-            ('hr_interview','HR Interview'),
-            ('not_selected','Not Selected'),
-            ('onboarding','Onboarding')
+            ('resume_recieved', 'Resume Recieved'),
+            ('wrritten_round', 'Wrritten Round'),
+            ('technical_interview', 'Technical Interview'),
+            ('hr_interview', 'HR Interview'),
+            ('not_selected', 'Not Selected'),
+            ('onboarding', 'Onboarding')
         ],
 
         string="Status",
-        default = "resume_recieved",
+        default="resume_recieved",
         required=True
     )
 
@@ -127,47 +127,43 @@ class CandidateApplied(models.Model):
     def emp_status_select(self):
         return {
             'effect': {
-                'fadeout':'slow',
-                'message':'Candidate Selected !!!',
+                'fadeout': 'slow',
+                'message': 'Candidate Selected !!!',
                 'type': 'rainbow_man',
             }
         }
+
     def emp_status_not_select(self):
         pass
+
 
 class DepartmentDesc(models.Model):
     _name = "department.desc"
     _description = "Number of departments in office"
     _rec_name = "dept_name"
 
-    # department name to be added 
+    # department name to be added
     dept_name = fields.Selection(
-        string = 'Add department',
-        selection = [('sales', 'Sales'), ('admin', 'Admin'),('odoo', 'Odoo'), ('oracle', 'Oracle'), 
-        ('helper', 'Helper'), ('director', 'Director')],
+        string='Add department',
+        selection=[('sales', 'Sales'), ('admin', 'Admin'), ('odoo', 'Odoo'), ('oracle', 'Oracle'),
+                   ('helper', 'Helper'), ('director', 'Director')],
         help='This is for selection of departments in an office',
-        required=True,
+        required=True
         # tracking=True
     )
 
     # department job description
     dept_job_dec = fields.Html("Job Description", required=True)
 
-    # years of experience required
-    dept_exp = fields.Selection("Experience Required", selection=[
-        ('zero_to_one', '0-1'),
-        ('two_three', '2-3'),
-        ('three_five', '3-5'),
-        ('more_than_five', '>5'),
-    ]
-    ,required=True)
+    # years of experience required add string in selection field its mandatory 
+    dept_exp = fields.Selection(
+        string="Experience Required in years",
+        selection=[('zero_to_one', '0-1'), ('two_three', '2-3'), ('three_five', '3-5'),
+                   ('more_than_five', '>5')],
+        required=True)
 
     # job type
-    dept_job_type = fields.Selection("Job type", selection=[
-        ('intern', 'Intership'),
-        ('full_time', 'Full Time'),
-        ('wfh', 'Work from Home'),
-    ],
-    required=True)
-
-
+    dept_job_type = fields.Selection(string="Job type", selection=[('intern', 'Intership'),
+    ('full_time', 'Full Time'),
+        ('wfh', 'Work from Home')],
+        required=True)

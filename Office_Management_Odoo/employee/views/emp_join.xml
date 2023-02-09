@@ -69,10 +69,10 @@
         <field name="model">department.desc</field>
         <field name="arch" type="xml">
             <tree string="department_desc_job_posting">
-                    <field name="dept_name"></field>
-                    <!-- <field name="dept_job_desc"></field> -->
-                    <field name="dept_exp"></field>
-                    <field name="dept_job_type"></field>
+                <field name="dept_name"></field>
+                <!-- <field name="dept_job_desc"></field> -->
+                <field name="dept_exp"></field>
+                <field name="dept_job_type"></field>
             </tree>
         </field>
     </record>
@@ -85,13 +85,15 @@
             <form string="Department_desc_job_posting">
                 <sheet>
                     <group>
-                        <field name="dept_name"></field>
-                        <field name="dept_job_type"></field>
-                        <field name="dept_exp"></field>
-                    </group>
+                        <group>
+                            <field name="dept_name"></field>
+                            <field name="dept_job_type"></field>
+                            <field name="dept_exp"></field>
+                        </group>
 
-                    <group>
-                        <field name="dept_job_dec"></field>
+                        <group>
+                            <field name="dept_job_dec"></field>
+                        </group>
                     </group>
                 </sheet>
             </form>
