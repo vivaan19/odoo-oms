@@ -10,6 +10,7 @@
             <tree string="employee_attendance_tree_view">
                     <field name="emp_name_id" />
                     <!-- <field name="today_date"></field> -->
+                    <field name="department"></field>
                     <field name="check_in_time" />
                     <field name="employee_status" />
             </tree>
