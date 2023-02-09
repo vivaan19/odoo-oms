@@ -1,16 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
     <menuitem
-        id="office_management_employee"
-        name="Office Employees"
-        sequence="0"/>
+    id="office_management_employee"
+    name="Office Employees"
+    sequence="0"
+  />
 
-    <menuitem
-        id="office_management_employee_"
-        name="name"
-        sequence="10"/>
+    <menuitem id="office_management_employee_" name="name" sequence="10" />
     
 
 <!-- lower sequence number higher is the order -->

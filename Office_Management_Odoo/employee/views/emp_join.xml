@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
     <record id="employee_join_view_form" model="ir.ui.view">
@@ -9,25 +9,28 @@
                 <sheet>
                 <group>
                     <group>
-                        <field name="name"></field>
-                        <field name="department"></field>
-                        <field name="gender"></field>
+                        <field name="name" />
+                        <field name="department" />
+                        <field name="gender" />
                     </group>
 
                     <group>
-                        <field name="age"></field>
-                        <field name="b_date"></field>
-                        <field name="active" invisible="true"></field>
-                        <field name="upload_res" filename="upload_res_name"></field>
-                        <field name="upload_res_name" invisible="true"></field>
+                        <field name="age" />
+                        <field name="b_date" />
+                        <field name="active" invisible="true" />
+                        <field name="upload_res" filename="upload_res_name" />
+                        <field name="upload_res_name" invisible="true" />
                     </group>
                     </group>
                 </sheet>
 
                 <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers"/>
-                    <field name="activity_ids" widget="mail_activity"/>
-                    <field name="message_ids" widget="mail_thread"/>
+                    <field
+            name="message_follower_ids"
+            widget="mail_followers"
+          />
+                    <field name="activity_ids" widget="mail_activity" />
+                    <field name="message_ids" widget="mail_thread" />
                 </div>
 
             </form>
@@ -40,10 +43,10 @@
         <field name="model">employee.join</field>
         <field name="arch" type="xml">
             <tree string="emp_join_tree_view">
-                <field name="name"></field>
-                <field name="age"></field>
-                <field name="department"></field>
-                <field name="gender"></field>
+                <field name="name" />
+                <field name="age" />
+                <field name="department" />
+                <field name="gender" />
             </tree>
         </field>
     </record>    

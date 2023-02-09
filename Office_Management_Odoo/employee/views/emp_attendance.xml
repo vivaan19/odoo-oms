@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
     <!-- emp attendance tree view -->
@@ -8,10 +8,10 @@
         <field name="model">employee.attendance</field>
         <field name="arch" type="xml">
             <tree string="employee_attendance_tree_view">
-                    <field name="emp_name_id"></field>
+                    <field name="emp_name_id" />
                     <!-- <field name="today_date"></field> -->
-                    <field name="check_in_time"></field>
-                    <field name="employee_status"></field>
+                    <field name="check_in_time" />
+                    <field name="employee_status" />
             </tree>
         </field>
     </record>
@@ -26,24 +26,31 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="emp_name_id"></field>
-                            <field name="check_in_time"></field>
-                            <field name="department"></field>
+                            <field name="emp_name_id" />
+                            <field name="check_in_time" />
+                            <field name="department" />
                         </group>
                         <!-- <field name="today_date"></field> -->
                         <group>
-                            <field name="employee_status"></field>
-                            <field name="emp_reason" placeholder="Reason for absent" attrs="{'invisible':[('employee_status', '=', 'present')]}"></field>
-                            <field name="age"></field>
-                            <field name="gender"></field>
+                            <field name="employee_status" />
+                            <field
+                name="emp_reason"
+                placeholder="Reason for absent"
+                attrs="{'invisible':[('employee_status', '=', 'present')]}"
+              />
+                            <field name="age" />
+                            <field name="gender" />
                         </group>
                     </group>
                 </sheet>
 
                 <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers"/>
-                    <field name="activity_ids" widget="mail_activity"/>
-                    <field name="message_ids" widget="mail_thread"/>
+                    <field
+            name="message_follower_ids"
+            widget="mail_followers"
+          />
+                    <field name="activity_ids" widget="mail_activity" />
+                    <field name="message_ids" widget="mail_thread" />
                 </div>
                 
             </form>
@@ -57,15 +64,30 @@
         <field name="model">employee.attendance</field>
         <field name="arch" type="xml">
             <search string="emp_attendance_search_view">
-                <field name="emp_name_id" filter_domain="['|', ('name', 'ilike', self)]"></field>
-                <field name="department"></field>
-                <field name="gender"></field>
+                <field
+          name="emp_name_id"
+          filter_domain="['|', ('name', 'ilike', self)]"
+        />
+                <field name="department" />
+                <field name="gender" />
 
                 <searchpanel>
 
-                    <field name="employee_status" enable_counters="1" icon="fas fa-user"></field>
-                    <field name="gender" enable_counters="1" icon="fa-soild fa-users"></field>
-                    <field name="department" enable_counters="1" icon="fa-solid fa-briefcase"></field>
+                    <field
+            name="employee_status"
+            enable_counters="1"
+            icon="fas fa-user"
+          />
+                    <field
+            name="gender"
+            enable_counters="1"
+            icon="fa-soild fa-users"
+          />
+                    <field
+            name="department"
+            enable_counters="1"
+            icon="fa-solid fa-briefcase"
+          />
 
                 </searchpanel>
             </search>

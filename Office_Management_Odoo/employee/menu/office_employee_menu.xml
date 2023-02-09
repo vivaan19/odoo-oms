@@ -1,80 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?>
-
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
     <!-- this is the root menu -->
-    <menuitem
-        id="employee"
-        name="Employees"
-        web_icon=""
-        sequence="0"/>
+    <menuitem id="employee" name="Employees" web_icon="" sequence="0" />
 
     <!-- this is 1st level -->
     <menuitem
-        id="employee_details"
-        name="Details"
-        parent="employee"
-        sequence="0"/>
+    id="employee_details"
+    name="Details"
+    parent="employee"
+    sequence="0"
+  />
     
     <!-- this is 2nd level -->
     <menuitem
-        id="employee_details_list"
-        action="employee.action_office_management_employees"
-        name="List of employees"
-        parent = "employee_details"
-        sequence="0"/>
+    id="employee_details_list"
+    action="employee.action_office_management_employees"
+    name="List of employees"
+    parent="employee_details"
+    sequence="0"
+  />
     <!-- 2nd level of first child : female employees -->
     <menuitem
-        id="employee_detail_list_female"
-        name="Female Employee"
-        action="employee.office_employee_female_action"
-        parent="employee_details"
-        sequence="0"/>
+    id="employee_detail_list_female"
+    name="Female Employee"
+    action="employee.office_employee_female_action"
+    parent="employee_details"
+    sequence="0"
+  />
 
     <!-- 2nd level of second child : male employees -->
     <menuitem
-        id="employee_detail_list_male"
-        name="Male Employee"
-        action="employee.office_employee_male_action"
-        parent="employee_details"
-        sequence="1"/>
+    id="employee_detail_list_male"
+    name="Male Employee"
+    action="employee.office_employee_male_action"
+    parent="employee_details"
+    sequence="1"
+  />
 
     <!-- employee attendance menu -->
     <menuitem
-        id="employee_attendance_menu"
-        name="Employee Attendance"
-        action="employee.action_employee_attendance"
-        parent="employee"
-        sequence="0"/>
+    id="employee_attendance_menu"
+    name="Employee Attendance"
+    action="employee.action_employee_attendance"
+    parent="employee"
+    sequence="0"
+  />
 
     <!-- employee hobby menu -->
     <menuitem
-        id="employee_hobby_menu"
-        name="Employee Hobby"
-        action="employee.action_employee_hobby"
-        parent="employee"
-        sequence="0"/>
+    id="employee_hobby_menu"
+    name="Employee Hobby"
+    action="employee.action_employee_hobby"
+    parent="employee"
+    sequence="0"
+  />
 
     <!-- recruitment menu -->
     <menuitem
-        id="employee_join_menu"
-        name="Employee Recruiment"
-        parent="employee"
-        sequence="0"/>
+    id="employee_join_menu"
+    name="Employee Recruiment"
+    parent="employee"
+    sequence="0"
+  />
     
     <menuitem
-        id="employee_join_menu_apply"
-        name="Apply Now"
-        action="employee.employee_join_action"
-        parent="employee_join_menu"
-        sequence="10"/>
+    id="employee_join_menu_apply"
+    name="Apply Now"
+    action="employee.employee_join_action"
+    parent="employee_join_menu"
+    sequence="10"
+  />
     
     <menuitem
-        id="employee_join_menu_candidates_apply"
-        name="Review Candidates"
-        action="employee.candidate_applied_action"      
-        parent="employee_join_menu"
-        sequence="10"/>
+    id="employee_join_menu_candidates_apply"
+    name="Review Candidates"
+    action="employee.candidate_applied_action"
+    parent="employee_join_menu"
+    sequence="10"
+  />
     
 
     

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
     <!-- this is a tree view -->
@@ -8,11 +8,11 @@
         <field name="model">office.employee</field>
         <field name="arch" type="xml">
             <tree string="Office_employee_tree_view">
-                <field name="name"></field>
-                <field name="age"></field>
-                <field name="department"></field>
-                <field name="gender"></field>
-                <field name="b_date"></field>
+                <field name="name" />
+                <field name="age" />
+                <field name="department" />
+                <field name="gender" />
+                <field name="b_date" />
             </tree>
         </field>
     </record>
@@ -35,33 +35,79 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="name" help="Name of the employee" icon="fa-solid fa-user"></field>
-                            <field name="age" icon="fa-solid fa-input-numeric"></field>
-                            <field name="b_date" icon="fa-solid fa-cake-candles"></field>
+                            <field
+                name="name"
+                help="Name of the employee"
+                icon="fa-solid fa-user"
+              />
+                            <field
+                name="age"
+                icon="fa-solid fa-input-numeric"
+              />
+                            <field
+                name="b_date"
+                icon="fa-solid fa-cake-candles"
+              />
                         </group>
                         <group>
-                            <field name="department" icon="fa-solid fa-briefcase"></field>
-                            <field name="gender" icon="fa-duotone fa-person-half-dress"></field>
+                            <field
+                name="department"
+                icon="fa-solid fa-briefcase"
+              />
+                            <field
+                name="gender"
+                icon="fa-duotone fa-person-half-dress"
+              />
                             
                             <!-- these are two buttons that are used to view different things of same model -->
-                            <button string="Female Employee" name="%(employee.office_employee_female_action)d" confirm="Are u sure want to view female employee ?" help="By clicking this button you will see female employee" type="action" class="oe_highlight"/>
-                            <button string="Male Employee" name="%(employee.office_employee_male_action)d" type="action" class="oe_highlight"/>
+                            <button
+                string="Female Employee"
+                name="%(employee.office_employee_female_action)d"
+                confirm="Are u sure want to view female employee ?"
+                help="By clicking this button you will see female employee"
+                type="action"
+                class="oe_highlight"
+              />
+                            <button
+                string="Male Employee"
+                name="%(employee.office_employee_male_action)d"
+                type="action"
+                class="oe_highlight"
+              />
                             
-                            <field name="active" invisible="true"></field>
+                            <field name="active" invisible="true" />
                         </group>
                     </group>
 
                     <notebook>
-                        <page name="employee_work_info_company" string="Company Information">
+                        <page
+              name="employee_work_info_company"
+              string="Company Information"
+            >
                             <field name="employee_more_details">
-                                <tree editable="bottom" widget='section_and_note_one2many'>
+                                <tree
+                  editable="bottom"
+                  widget='section_and_note_one2many'
+                >
                                     <control>
-                                        <create string='Add more detail'/>
+                                        <create string='Add more detail' />
                                     </control>
-                                    <field name="company_name" icon="fa-solid fa-buildings"></field>
-                                    <field name="work_location" icon="fa-solid fa-location-dot"></field>
-                                    <field name="work_phone" icon="fa-solid fa-phone-volume"></field>
-                                    <field name="work_email" icon="fa-solid fa-envelope"></field>
+                                    <field
+                    name="company_name"
+                    icon="fa-solid fa-buildings"
+                  />
+                                    <field
+                    name="work_location"
+                    icon="fa-solid fa-location-dot"
+                  />
+                                    <field
+                    name="work_phone"
+                    icon="fa-solid fa-phone-volume"
+                  />
+                                    <field
+                    name="work_email"
+                    icon="fa-solid fa-envelope"
+                  />
                                 </tree>
 
                                 <!-- <form>
@@ -79,7 +125,11 @@
                         <page name="emp_hobby" string="Employee Hobby">
                             <form>
                                 <group>
-                                    <field name="emp_hobby" widget="many2many_tags" icon="fa-solid fa-teddy-bear"></field>
+                                    <field
+                    name="emp_hobby"
+                    widget="many2many_tags"
+                    icon="fa-solid fa-teddy-bear"
+                  />
                                 </group>
                             </form>
 
@@ -89,9 +139,12 @@
                 </sheet>
 
                 <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers"/>
-                    <field name="activity_ids" widget="mail_activity"/>
-                    <field name="message_ids" widget="mail_thread"/>
+                    <field
+            name="message_follower_ids"
+            widget="mail_followers"
+          />
+                    <field name="activity_ids" widget="mail_activity" />
+                    <field name="message_ids" widget="mail_thread" />
                 </div>
 
             </form>
@@ -107,31 +160,43 @@
         <field name="arch" type="xml">
             <search string="office_employee_search_view">
 
-                <field name="name" filter_domain="['|', ('name', 'ilike', self)]"></field>
-                <field name="age"></field>
-                <field name="department"></field>
-                <field name="gender"></field>
+                <field
+          name="name"
+          filter_domain="['|', ('name', 'ilike', self)]"
+        />
+                <field name="age" />
+                <field name="department" />
+                <field name="gender" />
 
                 <!-- in domain attribute after selecting field type (here department) and operator (here =) define the keys not values -->
                 <!-- use markup of < and > as &lt; and &gt; -->
 
 
                 <!-- department filtering -->
-                <filter name="Director" domain="[('department', '=', 'director')]" />
-                <filter name="Oracle" domain="[('department', '=', 'oracle')]" />
+                <filter
+          name="Director"
+          domain="[('department', '=', 'director')]"
+        />
+                <filter
+          name="Oracle"
+          domain="[('department', '=', 'oracle')]"
+        />
                 <filter name="Odoo" domain="[('department', '=', 'odoo')]" />
                 <filter name="Sales" domain="[('department', '=', 'sales')]" />
                 <filter name="Admin" domain="[('department', '=', 'admin')]" />
-                <filter name="Helper" domain="[('department', '=', 'helper')]" />
+                <filter
+          name="Helper"
+          domain="[('department', '=', 'helper')]"
+        />
 
-                <separator/>
+                <separator />
                 <!-- add a seperator between two fields to perform and operations -->
                 <!-- gender filtering -->
                 <filter name="Male" domain="[('gender', '=', 'male')]" />
                 <filter name="Female" domain="[('gender', '=', 'female')]" />
                 <filter name="Others" domain="[('gender', '=', 'others')]" />
 
-                <separator/>
+                <separator />
 
                 <!-- age filtering -->
                 <!-- <filter name="Age less than 30" domain="[('age', '&lt;=', 30)]" />
@@ -141,21 +206,47 @@
 
                 <!-- this is filter of archive where it checks if active field is true or false -->
                 <!-- remember in True or False does not contains quotes -->
-                <filter name="filter_active" string="Archived" domain="[('active', '=', False)]" />
+                <filter
+          name="filter_active"
+          string="Archived"
+          domain="[('active', '=', False)]"
+        />
 
                 <!-- group-by -->
 
                 <group string="Group By" expand="0">
 
-                    <filter name="group_by_gender" string="Gender" context="{'group_by': 'gender'}" />
-                    <filter name="group_by_department" string="Department" context="{'group_by': 'department'}" />
-                    <filter name="group_by_active" string="Archived" domain="[('active', '=', False)]" context="{'group_by': 'active'}"/>
+                    <filter
+            name="group_by_gender"
+            string="Gender"
+            context="{'group_by': 'gender'}"
+          />
+                    <filter
+            name="group_by_department"
+            string="Department"
+            context="{'group_by': 'department'}"
+          />
+                    <filter
+            name="group_by_active"
+            string="Archived"
+            domain="[('active', '=', False)]"
+            context="{'group_by': 'active'}"
+          />
 
                 </group>
 
                 <searchpanel>
-                    <field name="department" select="multi" enable_counters="1" icon="fa-solid fa-briefcase"></field>
-                    <field name="gender" enable_counters="1" icon="fa-soild fa-users"></field>
+                    <field
+            name="department"
+            select="multi"
+            enable_counters="1"
+            icon="fa-solid fa-briefcase"
+          />
+                    <field
+            name="gender"
+            enable_counters="1"
+            icon="fa-soild fa-users"
+          />
                 </searchpanel>
 
             </search>
@@ -169,12 +260,12 @@
         <field name="model">office.employee</field>
         <field name="arch" type="xml">
             <kanban>
-                <field name="name"></field>
-                <field name="age"></field>
-                <field name="department"></field>
-                <field name="gender"></field>
-                <field name="b_date"></field>
-                <field name="emp_hobby"></field>
+                <field name="name" />
+                <field name="age" />
+                <field name="department" />
+                <field name="gender" />
+                <field name="b_date" />
+                <field name="emp_hobby" />
                 <templates>
                     <t t-name="kanban-box">
                         <div t-attf-class="oe_kanban_global_click">
@@ -217,7 +308,10 @@
 
 
     <!-- this defines an action and to add action to a menu or any element just past id of this action to action tag -->
-    <record id="action_office_management_employees" model="ir.actions.act_window">
+    <record
+    id="action_office_management_employees"
+    model="ir.actions.act_window"
+  >
         <field name="name">Employees Details</field>
         <!-- this name displayes when the menu is opened -->
 
@@ -254,7 +348,9 @@
         <field name="view_mode">tree,form</field>
         <field name="domain">[('gender', '=', 'female')]</field>
 
-        <field name="context">{'default_gender':'female', 'default_company_name':'BeyonData'}</field>
+        <field
+      name="context"
+    >{'default_gender':'female', 'default_company_name':'BeyonData'}</field>
 
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
@@ -271,7 +367,9 @@
         <field name="view_mode">tree,form</field>
         <field name="domain">[('gender', '=', 'male')]</field>
 
-        <field name="context">{'default_gender':'male', 'default_company_name':'BeyonData'}</field>
+        <field
+      name="context"
+    >{'default_gender':'male', 'default_company_name':'BeyonData'}</field>
 
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">

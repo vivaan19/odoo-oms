@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8' ?>
 <odoo>
 
     <!-- form view -->
@@ -10,7 +10,7 @@
             <form string="employee_hobby">
                 <sheet>
                     <group>
-                        <field name="hobbies"></field>
+                        <field name="hobbies" />
                     </group>
                 </sheet>
             </form>
@@ -24,7 +24,7 @@
         <field name="model">employee.hobby</field>
         <field name="arch" type="xml">
             <tree string="employee_hobby_tree_view">
-                <field name="hobbies"></field>
+                <field name="hobbies" />
             </tree>
         </field>
     </record>
