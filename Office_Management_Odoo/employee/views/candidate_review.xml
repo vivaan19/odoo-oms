@@ -18,7 +18,7 @@
             options="{'clickable':'1'}"
           />
                     <button
-            string="SELECT"
+            string="SELECT" 
             name="emp_status_select"
             type="object"
             class="oe_highlight"
@@ -83,7 +83,7 @@
         <field name="arch" type="xml">
             <tree string="candidate_applied_tree_view">
                 <field name="can_applied" />
-                <field name="priority" />
+                <field name="priority" widget="badge"/>
                 <field name="age" />
                 <field name="department" />
                 <field name="gender" />
