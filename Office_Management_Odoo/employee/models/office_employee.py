@@ -17,6 +17,7 @@ class OfficeEmployee(models.Model):
     age = fields.Char("Employee Age", compute="_compute_age", default="Not Specified birthdate", tracking=True)
 
     department = fields.Selection(
+
         string = 'Department Type',
         selection = [('sales', 'Sales'), ('admin', 'Admin'),('odoo', 'Odoo'), ('oracle', 'Oracle'), 
         ('helper', 'Helper'), ('director', 'Director')],

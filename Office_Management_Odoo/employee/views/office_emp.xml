@@ -1,10 +1,77 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <!-- this defines an action and to add action to a menu or any element just past id of this
+    action to action tag -->
+    <record id="action_office_management_employees" model="ir.actions.act_window">
+        <field name="name">Employees Details</field>
+        <!-- this name displayes when the menu is opened -->
+
+        <field name="type">ir.actions.act_window</field>
+        <!-- this is the type of action when a window is opened -->
+
+        <field name="res_model">office.employee</field>
+        <!-- this is a model that linkes to action -->
+
+        <field name="view_mode">tree,form,kanban</field>
+        <!-- this defines what view types we have to consider for the element -->
+
+        <!-- <field name="context">{'search_default_Male':1}</field> -->
+        <field name="context">{}</field>
+
+        <!-- when defining default search view with filters and groupby -->
+        <!-- syntax: search_default_<filter_name or groupby_name>:1 -->
+
+        <!-- this is py dict which defines default filters, group by -->
+
+        <!-- this is for help when there is no field this is appear -->
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create first employee !
+            </p>
+        </field>
+
+    </record>
+
+    <!-- defines action of female employee with domain and context -->
+    <record id="office_employee_female_action" model="ir.actions.act_window">
+        <field name="name">Female Employee</field>
+        <field name="res_model">office.employee</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('gender', '=', 'female')]</field>
+
+        <field name="context">{'default_gender':'female', 'default_company_name':'BeyonData'}</field>
+
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create first female employee !
+            </p>
+        </field>
+    </record>
+
+
+    <!-- defines action of male employee with domain and context -->
+    <record id="office_employee_male_action" model="ir.actions.act_window">
+        <field name="name">Male Employee</field>
+        <field name="res_model">office.employee</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('gender', '=', 'male')]</field>
+
+        <field name="context">{'default_gender':'male', 'default_company_name':'BeyonData'}</field>
+
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create first male employee !
+            </p>
+        </field>
+
+    </record>
+
     <!-- this is a tree view -->
-    <!-- if we have to define name other than model one in field tag specify an attribute string and give a new name -->
+    <!-- if we have to define name other than model one in field tag specify an attribute string and
+    give a new name -->
     <record id="office_employee_view_tree" model="ir.ui.view">
-        <field name="name">office.employee.view.tree</field>
+        <field name="name">office_employee.view.tree</field>
         <field name="model">office.employee</field>
         <field name="arch" type="xml">
             <tree string="Office_employee_tree_view">
@@ -18,10 +85,9 @@
     </record>
 
 
-
     <!-- this is a form view always put underscores in id attribute of record tag -->
     <record id="office_employee_view_form" model="ir.ui.view">
-        <field name="name">office.employee.view.form</field>
+        <field name="name">office_employee.view.form</field>
         <field name="model">office.employee</field>
         <field name="arch" type="xml">
 
@@ -35,79 +101,26 @@
                 <sheet>
                     <group>
                         <group>
-                            <field
-                name="name"
-                help="Name of the employee"
-                icon="fa-solid fa-user"
-              />
-                            <field
-                name="age"
-                icon="fa-solid fa-input-numeric"
-              />
-                            <field
-                name="b_date"
-                icon="fa-solid fa-cake-candles"
-              />
+                            <field name="name" help="Name of the employee"></field>
+                            <field name="age"></field>
+                            <field name="b_date"></field>
                         </group>
                         <group>
-                            <field
-                name="department"
-                icon="fa-solid fa-briefcase"
-              />
-                            <field
-                name="gender"
-                icon="fa-duotone fa-person-half-dress"
-              />
-                            
-                            <!-- these are two buttons that are used to view different things of same model -->
-                            <button
-                string="Female Employee"
-                name="%(employee.office_employee_female_action)d"
-                confirm="Are u sure want to view female employee ?"
-                help="By clicking this button you will see female employee"
-                type="action"
-                class="oe_highlight"
-              />
-                            <button
-                string="Male Employee"
-                name="%(employee.office_employee_male_action)d"
-                type="action"
-                class="oe_highlight"
-              />
-                            
-                            <field name="active" invisible="true" />
+                            <field name="department"></field>
+                            <field name="gender"></field>
+                            <field name="active" invisible="true"></field>
                         </group>
                     </group>
 
                     <notebook>
-                        <page
-              name="employee_work_info_company"
-              string="Company Information"
-            >
+                        <page name="employee_work_info_company" string="Company Information">
                             <field name="employee_more_details">
-                                <tree
-                  editable="bottom"
-                  widget='section_and_note_one2many'
-                >
-                                    <control>
-                                        <create string='Add more detail' />
-                                    </control>
-                                    <field
-                    name="company_name"
-                    icon="fa-solid fa-buildings"
-                  />
-                                    <field
-                    name="work_location"
-                    icon="fa-solid fa-location-dot"
-                  />
-                                    <field
-                    name="work_phone"
-                    icon="fa-solid fa-phone-volume"
-                  />
-                                    <field
-                    name="work_email"
-                    icon="fa-solid fa-envelope"
-                  />
+                                <tree>
+
+                                    <field name="company_name"></field>
+                                    <field name="work_location"></field>
+                                    <field name="work_phone"></field>
+                                    <field name="work_email"></field>
                                 </tree>
 
                                 <!-- <form>
@@ -125,11 +138,8 @@
                         <page name="emp_hobby" string="Employee Hobby">
                             <form>
                                 <group>
-                                    <field
-                    name="emp_hobby"
-                    widget="many2many_tags"
-                    icon="fa-solid fa-teddy-bear"
-                  />
+                                    <field name="emp_hobby" widget="many2many_tags"
+                                        icon="fa-solid fa-teddy-bear"></field>
                                 </group>
                             </form>
 
@@ -139,18 +149,14 @@
                 </sheet>
 
                 <div class="oe_chatter">
-                    <field
-            name="message_follower_ids"
-            widget="mail_followers"
-          />
-                    <field name="activity_ids" widget="mail_activity" />
-                    <field name="message_ids" widget="mail_thread" />
+                    <field name="message_follower_ids" widget="mail_followers"></field>
+                    <field name="activity_ids" widget="mail_activity"></field>
+                    <field name="message_ids" widget="mail_thread"></field>
                 </div>
 
             </form>
         </field>
     </record>
-
 
 
     <!-- this is search view -->
@@ -159,35 +165,23 @@
         <field name="model">office.employee</field>
         <field name="arch" type="xml">
             <search string="office_employee_search_view">
-
-                <field
-          name="name"
-          filter_domain="['|', ('name', 'ilike', self)]"
-        />
+                <field name="name" filter_domain="['|', ('name', 'ilike', self)]"/>
                 <field name="age" />
                 <field name="department" />
                 <field name="gender" />
 
-                <!-- in domain attribute after selecting field type (here department) and operator (here =) define the keys not values -->
+                <!-- in domain attribute after selecting field type (here department) and operator
+                (here =) define the keys not values -->
                 <!-- use markup of < and > as &lt; and &gt; -->
 
 
                 <!-- department filtering -->
-                <filter
-          name="Director"
-          domain="[('department', '=', 'director')]"
-        />
-                <filter
-          name="Oracle"
-          domain="[('department', '=', 'oracle')]"
-        />
+                <filter name="Director" domain="[('department', '=', 'director')]" />
+                <filter name="Oracle" domain="[('department', '=', 'oracle')]" />
                 <filter name="Odoo" domain="[('department', '=', 'odoo')]" />
                 <filter name="Sales" domain="[('department', '=', 'sales')]" />
                 <filter name="Admin" domain="[('department', '=', 'admin')]" />
-                <filter
-          name="Helper"
-          domain="[('department', '=', 'helper')]"
-        />
+                <filter name="Helper" domain="[('department', '=', 'helper')]" />
 
                 <separator />
                 <!-- add a seperator between two fields to perform and operations -->
@@ -206,47 +200,24 @@
 
                 <!-- this is filter of archive where it checks if active field is true or false -->
                 <!-- remember in True or False does not contains quotes -->
-                <filter
-          name="filter_active"
-          string="Archived"
-          domain="[('active', '=', False)]"
-        />
+                <filter name="filter_active" string="Archived" domain="[('active', '=', False)]" />
 
                 <!-- group-by -->
 
                 <group string="Group By" expand="0">
 
-                    <filter
-            name="group_by_gender"
-            string="Gender"
-            context="{'group_by': 'gender'}"
-          />
-                    <filter
-            name="group_by_department"
-            string="Department"
-            context="{'group_by': 'department'}"
-          />
-                    <filter
-            name="group_by_active"
-            string="Archived"
-            domain="[('active', '=', False)]"
-            context="{'group_by': 'active'}"
-          />
+                    <filter name="group_by_gender" string="Gender" context="{'group_by': 'gender'}" />
+                    <filter name="group_by_department" string="Department"
+                        context="{'group_by': 'department'}" />
+                    <filter name="group_by_active" string="Archived"
+                        domain="[('active', '=', False)]" context="{'group_by': 'active'}" />
 
                 </group>
 
                 <searchpanel>
-                    <field
-            name="department"
-            select="multi"
-            enable_counters="1"
-            icon="fa-solid fa-briefcase"
-          />
-                    <field
-            name="gender"
-            enable_counters="1"
-            icon="fa-soild fa-users"
-          />
+                    <field name="department" select="multi" enable_counters="1"
+                        icon="fa-solid fa-briefcase" />
+                    <field name="gender" enable_counters="1" icon="fa-solid fa-users" />
                 </searchpanel>
 
             </search>
@@ -271,30 +242,24 @@
                         <div t-attf-class="oe_kanban_global_click">
                             <div class="oe_kanban_details">
                                 <ul>
-                                    <li>
-                                Name: <field name="name" />
+                                    <li> Name: <field name="name" />
                                     </li>
 
-                                    <li>
-                                Age: <field name="age" />
+                                    <li> Age: <field name="age" />
                                     </li>
 
-                                    <li>
-                                Department: <field name="department" />
+                                    <li> Department: <field name="department" />
                                     </li>
 
-                                    <li>
-                                Gender: <field name="gender" />
+                                    <li> Gender: <field name="gender" />
                                     </li>
 
 
-                                    <li>
-                                Birthdate: <field name="b_date" />
+                                    <li> Birthdate: <field name="b_date" />
                                     </li>
 
 
-                                    <li>
-                                Hobby: <field name="emp_hobby" />
+                                    <li> Hobby: <field name="emp_hobby" />
                                     </li>
                                 </ul>
                             </div>
@@ -303,80 +268,6 @@
                 </templates>
             </kanban>
         </field>
-    </record>
-
-
-
-    <!-- this defines an action and to add action to a menu or any element just past id of this action to action tag -->
-    <record
-    id="action_office_management_employees"
-    model="ir.actions.act_window"
-  >
-        <field name="name">Employees Details</field>
-        <!-- this name displayes when the menu is opened -->
-
-        <field name="type">ir.actions.act_window</field>
-        <!-- this is the type of action when a window is opened -->
-
-        <field name="res_model">office.employee</field>
-        <!-- this is a model that linkes to action -->
-
-        <field name="view_mode">tree,form,kanban</field>
-        <!-- this defines what view types we have to consider for the element -->
-
-        <!-- <field name="context">{'search_default_Male':1}</field> -->
-        <field name="context">{}</field>
-
-        <!-- when defining default search view with filters and groupby -->
-        <!-- syntax: search_default_<filter_name or groupby_name>:1 -->
-
-        <!-- this is py dict which defines default filters, group by -->
-
-        <!-- this is for help when there is no field this is appear -->
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                Create first employee ! 
-            </p>
-        </field>
-
-    </record>
-
-    <!-- defines action of female employee with domain and context -->
-    <record id="office_employee_female_action" model="ir.actions.act_window">
-        <field name="name">Female Employee</field>
-        <field name="res_model">office.employee</field>
-        <field name="view_mode">tree,form</field>
-        <field name="domain">[('gender', '=', 'female')]</field>
-
-        <field
-      name="context"
-    >{'default_gender':'female', 'default_company_name':'BeyonData'}</field>
-
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                Create first female employee ! 
-            </p>
-        </field>
-    </record>
-
-
-    <!-- defines action of male employee with domain and context -->
-    <record id="office_employee_male_action" model="ir.actions.act_window">
-        <field name="name">Male Employee</field>
-        <field name="res_model">office.employee</field>
-        <field name="view_mode">tree,form</field>
-        <field name="domain">[('gender', '=', 'male')]</field>
-
-        <field
-      name="context"
-    >{'default_gender':'male', 'default_company_name':'BeyonData'}</field>
-
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                Create first male employee ! 
-            </p>
-        </field>
-
     </record>
 
 </odoo>

@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
+    <!-- 
+        the order for arranging xml file: 
+        1. actions 
+        2. tree view and form view of that action
+    -->
+    
+    <!-- action for menu apply now -->
+    <record id="employee_join_action" model="ir.actions.act_window">
+        <field name="name">Apply Now</field>
+        <field name="res_model">employee.join</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Apply Now to first job !!!  
+            </p>
+        </field>
+    </record>
+
+
+    <!-- apply now -->
     <record id="employee_join_view_form" model="ir.ui.view">
         <field name="name">employee_join.view.form</field>
         <field name="model">employee.join</field>
@@ -10,8 +32,13 @@
                     <group>
                         <group>
                             <field name="name" />
-                            <field name="department" />
+                            <field name="department_id" />
+                            <field name="dept_exp" />
+                            <field name="dept_job_type" />
                             <field name="gender" />
+                            <field name="department_copy" 
+                            invisible="1"
+                             />
                         </group>
 
                         <group>
@@ -20,6 +47,9 @@
                             <field name="active" invisible="true" />
                             <field name="upload_res" filename="upload_res_name" />
                             <field name="upload_res_name" invisible="true" />
+                        </group>
+                        <group>
+                            <field name="dept_job_dec" />
                         </group>
                     </group>
                 </sheet>
@@ -42,27 +72,30 @@
             <tree string="emp_join_tree_view">
                 <field name="name" />
                 <field name="age" />
-                <field name="department" />
+                <field name="department_id" />
                 <field name="gender" />
+
             </tree>
         </field>
     </record>
 
-    <!-- action for menu apply now -->
-    <record id="employee_join_action" model="ir.actions.act_window">
-        <field name="name">Apply Now</field>
-        <field name="res_model">employee.join</field>
+
+    <!-- action for model  department.desc which defines job posting-->
+    <record id="department_desc_action" model="ir.actions.act_window">
+        <field name="name">Job Posting</field>
+        <field name="res_model">department.desc</field>
         <field name="view_mode">tree,form,kanban</field>
         <field name="domain">[]</field>
         <field name="context">{}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                Apply Now to first job !!!  
+                Create first job posing !  
             </p>
         </field>
     </record>
 
-
+    
+    <!-- job posting -->
     <!-- tree view for department desc for job posting -->
     <record id="department_desc_view_tree" model="ir.ui.view">
         <field name="name">department_desc.view.tree</field>
@@ -97,20 +130,6 @@
                     </group>
                 </sheet>
             </form>
-        </field>
-    </record>
-
-    <!-- action for model  department.desc which defines job posting-->
-    <record id="department_desc_action" model="ir.actions.act_window">
-        <field name="name">Job Posting</field>
-        <field name="res_model">department.desc</field>
-        <field name="view_mode">tree,form,kanban</field>
-        <field name="domain">[]</field>
-        <field name="context">{}</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                Create first job posing !  
-            </p>
         </field>
     </record>
 

@@ -38,14 +38,39 @@
     sequence="1"
   />
 
-    <!-- employee attendance menu -->
+    <!-- employee attendance menu parent-->
     <menuitem
     id="employee_attendance_menu"
     name="Employee Attendance"
-    action="employee.action_employee_attendance"
     parent="employee"
     sequence="0"
   />
+  
+  <!-- emp attendance 1st submenu to view attendance -->
+  <menuitem
+    id="employee_attendance_view_attendance_menu"
+    name="View Employee Attendance"
+    action="employee.action_employee_attendance"
+    parent="employee_attendance_menu"
+    sequence="1"/>
+
+  <!-- emp attendance 2nd submenu to apply for leave -->
+  <menuitem
+    id="employee_attendance_leave_menu"
+    name="Apply Leave"
+    action="employee.employee_leave_apply_action"
+    parent="employee_attendance_menu"
+    sequence="2"/>
+
+  <!-- emp attendance 3rd submenu to grant for a leave -->
+  <menuitem
+    id="employee_grant_leave_menu"
+    name="Grant Leave"
+    action=""
+    parent="employee_attendance_menu"
+    sequence="3"/>
+
+
 
     <!-- employee hobby menu -->
     <menuitem

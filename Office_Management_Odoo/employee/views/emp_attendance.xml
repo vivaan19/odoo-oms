@@ -1,24 +1,52 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
-    <!-- emp attendance tree view -->
+    <!-- 
+        this file is of marking employee attendance, applying for a leave and granting leave
+    -->
 
+    <!-- this defines an action and to add action to a menu or any element just past id of this action to action tag -->
+    <record id="action_employee_attendance" model="ir.actions.act_window">
+
+        <field name="name">Employees Attendance</field>
+
+        <!-- this name displayed when the menu is opened -->
+        <field name="type">ir.actions.act_window</field>
+
+        <!-- this is the type of action when a window is opened -->
+        <field name="res_model">employee.attendance</field>
+
+        <!-- this is a model that links to action -->
+        <field name="view_mode">tree,form</field>
+
+        <!-- this defines default values we have to have when a form view is loaded  -->
+        <field name="context">{'default_employee_status':'present'}</field>
+        <!-- this is a python dictionary which gives action to particular modules defined -->
+
+        <!-- this is for help when there is no field this is appear -->
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create first employee attendance ! 
+            </p>
+        </field>
+    </record>
+
+    <!-- emp attendance tree view -->
     <record id="employee_attendance_view_tree" model="ir.ui.view">
         <field name="name">employee_attendance.view.tree</field>
         <field name="model">employee.attendance</field>
         <field name="arch" type="xml">
             <tree string="employee_attendance_tree_view">
-                    <field name="emp_name_id" />
-                    <!-- <field name="today_date"></field> -->
-                    <field name="department"></field>
-                    <field name="check_in_time" />
-                    <field name="employee_status" />
+                <field name="emp_name_id" />
+                <!-- <field name="today_date"></field> -->
+                <field name="department"></field>
+                <field name="check_in_time" />
+                <field name="employee_status" widget="badge" decoration-success=" 'present' in employee_status" decoration-danger=" 'absent' in employee_status" decoration-muted=" 'leave' in employee_status"/>
             </tree>
         </field>
     </record>
 
     <!-- emp attendance from view -->
-
     <record id="employee_attendance_view_form" model="ir.ui.view">
         <field name="name">employee_attendance.view.form</field>
         <field name="model">employee.attendance</field>
@@ -33,12 +61,10 @@
                         </group>
                         <!-- <field name="today_date"></field> -->
                         <group>
-                            <field name="employee_status" />
-                            <field
-                name="emp_reason"
-                placeholder="Reason for absent"
-                attrs="{'invisible':[('employee_status', '=', 'present')]}"
-              />
+                            <field name="employee_status"/>
+
+                            <field name="emp_reason" placeholder="Reason for absent" attrs="{'invisible':[('employee_status', '=', 'present')]}" />
+
                             <field name="age" />
                             <field name="gender" />
                         </group>
@@ -46,77 +72,91 @@
                 </sheet>
 
                 <div class="oe_chatter">
-                    <field
-            name="message_follower_ids"
-            widget="mail_followers"
-          />
+                    <field name="message_follower_ids" widget="mail_followers" />
                     <field name="activity_ids" widget="mail_activity" />
                     <field name="message_ids" widget="mail_thread" />
                 </div>
-                
+
             </form>
         </field>
     </record>
 
     <!-- search view -->
-
     <record id="employee_attendance_view_search" model="ir.ui.view">
         <field name="name">employee_attendance.view.search</field>
         <field name="model">employee.attendance</field>
         <field name="arch" type="xml">
             <search string="emp_attendance_search_view">
-                <field
-          name="emp_name_id"
-          filter_domain="['|', ('name', 'ilike', self)]"
-        />
+                <field name="emp_name_id" filter_domain="['|', ('name', 'ilike', self)]" />
                 <field name="department" />
                 <field name="gender" />
 
                 <searchpanel>
 
-                    <field
-            name="employee_status"
-            enable_counters="1"
-            icon="fas fa-user"
-          />
-                    <field
-            name="gender"
-            enable_counters="1"
-            icon="fa-soild fa-users"
-          />
-                    <field
-            name="department"
-            enable_counters="1"
-            icon="fa-solid fa-briefcase"
-          />
+                    <field name="employee_status" enable_counters="1" icon="fas fa-user" />
+                    <field name="gender" enable_counters="1" icon="fa-soild fa-users" />
+                    <field name="department" enable_counters="1" icon="fa-solid fa-briefcase" />
 
                 </searchpanel>
             </search>
         </field>
     </record>
-    <!-- this defines an action and to add action to a menu or any element just past id of this action to action tag -->
-    <record id="action_employee_attendance" model="ir.actions.act_window">
-        <field name="name">Employees Attendance</field>
 
-        <!-- this name displayes when the menu is opened -->
-        <field name="type">ir.actions.act_window</field>
-        
-        <!-- this is the type of action when a window is opened -->
-        <field name="res_model">employee.attendance</field>
-        
-        <!-- this is a model that linkes to action -->
+
+
+    <!-- leave apply action -->
+    <record id="employee_leave_apply_action" model="ir.actions.act_window">
+        <field name="name">Request a leave</field>
+        <field name="res_model">employee.leave.apply</field>
         <field name="view_mode">tree,form</field>
-        
-        <!-- this defines what view types we have to consider for the element -->
-        <field name="context">{'default_employee_status':'present'}</field>
-        
-        <!-- this is a python dictionary which gives action to particular modules defined -->
-
-        <!-- this is for help when there is no field this is appear -->
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                Create first employee attendance ! 
+                Apply for a leave ! 
             </p>
+        </field>
+    </record>
+
+    <!-- leave apply tree view -->
+    <record id="employee_leave_apply_view_tree" model="ir.ui.view">
+        <field name="name">employee_leave_apply.view.tree</field>
+        <field name="model">employee.leave.apply</field>
+        <field name="arch" type="xml">
+            <tree string="apply_for_leave_tree_view">
+                <field name="leave_id"></field>
+                <field name="emp_name_id"></field>
+                <field name="emp_leave_start"></field>
+                <field name="emp_leave_end"></field>
+                <!-- <field name="leave_reason"></field> -->
+            </tree>
+        </field>
+    </record>
+
+    <!-- view apply form view -->
+    <record id="employee_leave_apply_view_form" model="ir.ui.view">
+        <field name="name">employee_leave_apply.view.form</field>
+        <field name="model">employee.leave.apply</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+
+                        <group>
+                            <field name="emp_name_id"></field>
+                            <field name="emp_leave_start"></field>
+                        </group>
+                        <group>
+
+                            <field name="emp_leave_end"></field>
+                            <field name="leave_reason"></field>
+                            <field name="leave_id" readonly="1"></field>
+
+                        </group>
+
+                    </group>
+                </sheet>
+            </form>
         </field>
     </record>
 

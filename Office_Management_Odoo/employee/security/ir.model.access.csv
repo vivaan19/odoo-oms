@@ -6,3 +6,4 @@ access_employee_hobby_user,access.employee.hobby,model_employee_hobby,base.group
 employee.access_employee_join,access_employee_join,employee.model_employee_join,base.group_user,1,1,1,1
 employee.access_candidate_applied,access_candidate_applied,employee.model_candidate_applied,base.group_user,1,1,1,1
 access_department_desc_user,employee.department.desc,model_department_desc,base.group_user,1,1,1,1
+access_employee_leave_apply_user,employee.employee.leave.apply,model_employee_leave_apply,base.group_user,1,1,1,1
