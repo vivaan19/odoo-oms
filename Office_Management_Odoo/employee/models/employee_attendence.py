@@ -78,10 +78,10 @@ class EmployeeLeaveApply(models.Model):
     
     def _compute_leave_id(self):
         for record in self:
-            if len(record.emp_name_id) > 2:
-                record.leave_id = f'{record.emp_name_id[:3].upper()}00{random.randint(100,999)}'
-            elif len(record.emp_name_id) == 2:
-                record.leave_id = f'{record.emp_name_id[:2].upper()}00{random.randint(100,999)}'
+            if len(record.emp_name_id.name) > 2:
+                record.leave_id = f'{record.emp_name_id.name[:3].upper()}00{random.randint(100,999)}'
+            elif len(record.emp_name_id.name) == 2:
+                record.leave_id = f'{record.emp_name_id.name[:2].upper()}00{random.randint(100,999)}'
             else: 
                 record.leave_id = ""
 
