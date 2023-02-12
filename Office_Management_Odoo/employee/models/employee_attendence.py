@@ -1,3 +1,4 @@
+from pyexpat import model
 import random
 import time
 from odoo import fields, models, api
@@ -57,7 +58,7 @@ class EmployeeAttendance(models.Model):
 class EmployeeLeaveApply(models.Model):
     _name = "employee.leave.apply"
     _description = "Employee now can apply for a leave and wait util the leave is granted"
-    _rec_name = "emp_name_id"
+    _rec_name = "leave_id"
 
     emp_name_id = fields.Many2one(
         string='Employee Name',
@@ -76,6 +77,8 @@ class EmployeeLeaveApply(models.Model):
     leave_id = fields.Char(string="Leave Unique ID", 
         compute='_compute_leave_id' )
     
+    apply_status = fields.Boolean(string="Apply Status", readonly=True)
+    
     def _compute_leave_id(self):
         for record in self:
             if len(record.emp_name_id.name) > 2:
@@ -85,6 +88,17 @@ class EmployeeLeaveApply(models.Model):
             else: 
                 record.leave_id = ""
 
-    
+class grantLeave(models.Model):
+    _name = "employee.grant.leave"
+    _description = "grant leave for a employee who has applied it"
+    _rec_name = "emp_leave_id"
+
+    emp_leave_id = fields.Many2one(
+        string="Employee leave it",
+        required=True
+    )
+
+    # grant_or_not = 
+
 
 
