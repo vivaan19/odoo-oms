@@ -40,11 +40,11 @@
     </record>
 
     <!-- tree view -->
-    <record id="employee_hobby_view_tree" model="ir.ui.view">
+    <record id="employee_hobby_view_tree" model="ir.ui.view" >
         <field name="name">employee.hobby.view.tree</field>
         <field name="model">employee.hobby</field>
         <field name="arch" type="xml">
-            <tree string="employee_hobby_tree_view">
+            <tree string="employee_hobby_tree_view" sample="1">
                 <field name="hobbies" />
             </tree>
         </field>

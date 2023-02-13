@@ -74,7 +74,7 @@
         <field name="name">office_employee.view.tree</field>
         <field name="model">office.employee</field>
         <field name="arch" type="xml">
-            <tree string="Office_employee_tree_view">
+            <tree string="Office_employee_tree_view" sample="1">
                 <field name="name" />
                 <field name="age" />
                 <field name="department" />

@@ -49,7 +49,19 @@ point curser to a default field which means whenever we open a form view the mou
 pointed to a field 
 to any field 
 default_focus="1"
-    
+
+------------------------------------------------------------------------------------------------------
+
+Vid 45: show background data to different views 
+
+background data means that when there is no data in a data base to display then a blurry background
+will appear that will be default when there is no data in a model. 
+
+in any view starting tag add : sample = "1" 
+
+----------------------------------------------------------------------------------------------------------
+
+Vid 46: 
 
 
 

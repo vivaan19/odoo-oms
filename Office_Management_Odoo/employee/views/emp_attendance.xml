@@ -36,7 +36,7 @@
         <field name="name">employee_attendance.view.tree</field>
         <field name="model">employee.attendance</field>
         <field name="arch" type="xml">
-            <tree string="employee_attendance_tree_view">
+            <tree string="employee_attendance_tree_view" sample="1">
                 <field name="emp_name_id" />
                 <!-- <field name="today_date"></field> -->
                 <field name="department"></field>
@@ -123,7 +123,7 @@
         <field name="name">employee_leave_apply.view.tree</field>
         <field name="model">employee.leave.apply</field>
         <field name="arch" type="xml">
-            <tree string="apply_for_leave_tree_view">
+            <tree string="apply_for_leave_tree_view" sample="1">
                 <field name="leave_id"></field>
                 <field name="emp_name_id"></field>
                 <field name="emp_leave_start"></field>
@@ -131,6 +131,7 @@
                 <field name="apply_status"></field>
                 <!-- <field name="leave_reason"></field> -->
             </tree>
+
         </field>
     </record>
 

@@ -74,6 +74,7 @@
             decoration-success="'intern' in dept_job_type"
             decoration-primary="'full_time' in dept_job_type"
             decoration-info="'wfh' in dept_job_type"
+            sample="1"
             >
                 <field name="name" />
                 <field name="age" />
@@ -86,7 +87,7 @@
 
                 ></field>
                 <field name="department_id" />
-                
+
                 <field name="gender" optional="hide"/>
                 <field name="dept_exp" optional="hide"/>
                 <field name="upload_res" optional="hide"/>
