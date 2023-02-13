@@ -63,8 +63,19 @@
                             <field name="hiring_manager_id" widget="many2one_avatar"></field>
                         </group>
                     </group>
+                    
+                    <notebook>
+                        <page name="Performance" string="performance">
+                            
+                            <field name="performance_candidate" placeholder="discuss candidate performance ... its collaborative"
+                            options="{'collaborative':true}"
+    
+                            ></field>
+                        </page>
+                    </notebook>
                 </sheet>
 
+                
                 <div class="oe_chatter">
                     <field name="message_follower_ids" widget="mail_followers" />
                     <field name="activity_ids" widget="mail_activity" />

@@ -29,3 +29,13 @@ widget -> many2one_avatar_user shows the photo of the user and when clicking the
 
 will only work on many2one fields
 
+------------------------------------------------------------------------------------------------------------
+
+Vid: 42 - Make HTML field collaborative
+make any html field collaborative by adding 
+option = "{'collaborative':true}" 
+
+
+
+
+
