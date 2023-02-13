@@ -36,7 +36,7 @@
         <field name="name">employee_attendance.view.tree</field>
         <field name="model">employee.attendance</field>
         <field name="arch" type="xml">
-            <tree string="employee_attendance_tree_view" sample="1">
+            <tree string="employee_attendance_tree_view" sample="1" multi_edit = "1">
                 <field name="emp_name_id" />
                 <!-- <field name="today_date"></field> -->
                 <field name="department"></field>

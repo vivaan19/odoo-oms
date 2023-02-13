@@ -100,6 +100,7 @@
             decoration-primary="state=='technical_interview'" 
             decoration-bf="state=='hr_interview'" 
             decoration-success="state=='onboarding'"
+            multi_edit = "1"
             >
                 <field name="can_applied" />
                 <field name="priority" widget="badge"/>

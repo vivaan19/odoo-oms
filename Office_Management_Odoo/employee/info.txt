@@ -61,7 +61,7 @@ in any view starting tag add : sample = "1"
 
 ----------------------------------------------------------------------------------------------------------
 
-Vid 46: 
+Vid 46: enable multi editing in odoo - make tree view editable 
 
-
-
+add - 
+multi_edit = "1" to tree view 

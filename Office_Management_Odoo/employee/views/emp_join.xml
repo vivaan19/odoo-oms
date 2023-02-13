@@ -74,7 +74,7 @@
             decoration-success="'intern' in dept_job_type"
             decoration-primary="'full_time' in dept_job_type"
             decoration-info="'wfh' in dept_job_type"
-            sample="1"
+            sample="1" multi_edit = "1"
             >
                 <field name="name" />
                 <field name="age" />
@@ -124,7 +124,7 @@
             decoration-success="'intern' in dept_job_type"
             decoration-primary="'full_time' in dept_job_type"
             decoration-info="'wfh' in dept_job_type"
-            
+            multi_edit = "1"
             >
                 <field name="dept_name"></field>
                 <!-- <field name="dept_job_desc"></field> -->

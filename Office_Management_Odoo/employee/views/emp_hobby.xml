@@ -44,7 +44,7 @@
         <field name="name">employee.hobby.view.tree</field>
         <field name="model">employee.hobby</field>
         <field name="arch" type="xml">
-            <tree string="employee_hobby_tree_view" sample="1">
+            <tree string="employee_hobby_tree_view" sample="1" multi_edit = "1">
                 <field name="hobbies" />
             </tree>
         </field>
