@@ -41,5 +41,15 @@ Vid 43: enable resizable option for html
 
 option = "{'resizable':true}"
 
+-----------------------------------------------------------------------------------------------------------------
+
+Vid 44: Default focus attribute 
+
+point curser to a default field which means whenever we open a form view the mouse will be
+pointed to a field 
+to any field 
+default_focus="1"
+    
+
 
 

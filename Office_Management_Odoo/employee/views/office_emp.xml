@@ -103,7 +103,7 @@
                         <group>
                             <field name="name" help="Name of the employee"></field>
                             <field name="age"></field>
-                            <field name="b_date"></field>
+                            <field name="b_date" default_focus='1'></field>
                         </group>
                         <group>
                             <field name="department"></field>
