@@ -98,7 +98,7 @@ class CandidateApplied(models.Model):
     _rec_name = "can_applied"
 
     can_applied = fields.Many2one("employee.join", string="Name")
-
+    hiring_manager_id = fields.Many2one("res.users", string="Hiring Manager")
         
     selection_status = fields.Selection(
         string="Selection Status",

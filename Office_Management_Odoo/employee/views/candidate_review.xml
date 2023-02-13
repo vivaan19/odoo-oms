@@ -60,6 +60,7 @@
                             <field name="upload_res_name" invisible="true" />
                             <field name="upload_res" filename="upload_res_name" />
                             <field name="selection_status" />
+                            <field name="hiring_manager_id" widget="many2one_avatar"></field>
                         </group>
                     </group>
                 </sheet>
@@ -80,6 +81,7 @@
         <field name="name">candidate_applied.view.tree</field>
         <field name="model">candidate.applied</field>
         <field name="arch" type="xml">
+
             <tree string="candidate_applied_tree_view"
 
             decoration-danger="state=='not_selected'" 
@@ -93,9 +95,13 @@
                 <field name="department" />
                 <field name="activity_ids" widget="list_activity"></field>
 
+                <!-- optional fields for dynamic tree view -->
                 <field name="age" optional="hide"/>
                 <field name="gender" optional="hide"/>
                 <field name="upload_res_name" optional="hide"/>
+
+                <!-- field for widget many2one_avatar_user for showing face and chat -->
+                <field name="hiring_manager_id" widget="many2one_avatar_user"></field>
 
 
                 <!-- <field name="gender" /> -->

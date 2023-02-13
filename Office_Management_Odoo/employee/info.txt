@@ -20,3 +20,12 @@ with dynamic tree view, a three dot menu of fields will appear at the end.
 to show three dots I have to add optional="show" to any of the tree view fields.
 then add fields to tree view and set optional="hide" to uncheck it in three dots. 
 
+-------------------------------------------------------------------------------------
+
+Vid: 41 - Many2one Avatar And Many2One Avatar User Widget In Odoo
+
+widget -> many2one_avatar only shows the photo of the user 
+widget -> many2one_avatar_user shows the photo of the user and when clicking the photo a chat is opened up. 
+
+will only work on many2one fields
+
