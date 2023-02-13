@@ -109,7 +109,8 @@ class CandidateApplied(models.Model):
         ],
         required=True,
         tracking=True,
-        default='not_selected'
+        default='not_selected',
+        readonly=True
         
     )
 
@@ -135,7 +136,9 @@ class CandidateApplied(models.Model):
 
         string="Status",
         default="resume_received",
-        required=True
+        required=True,
+        # readonly=True
+
     )
 
     # onchange fields 
@@ -155,7 +158,6 @@ class CandidateApplied(models.Model):
                    ('others', 'Others')],
         required=True,
         tracking=True,
-        readonly=True
     )
 
     upload_res = fields.Binary(string="Uploaded Resume", required=True)

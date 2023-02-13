@@ -79,3 +79,11 @@ keyword
 
 assign states keyword to button field then put comma separated name of states to be displayed so that
 button will appear when that specific state is matched.  
+
+--------------------------------------------------------------------------------------------------------------------------
+
+Vid 48: Data hot key - enable button shortcuts 
+
+hot keys are those keys when combined with alt do auto clicking of a button 
+
+to assign a hot-key to buttons of form view, in button field add data-hotkey = "<hot-key-letter>"

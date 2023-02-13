@@ -37,19 +37,22 @@
 
                     <field name="state" widget="statusbar" />
                     
-                    <button string="Select" name="emp_status_select" type="object" class="oe_highlight" states="hr_interview"/>
+                    <button string="Select" name="emp_status_select" type="object" class="oe_highlight" 
+                    states="hr_interview" data-hotkey="y"/>
                     
                     <button string="Written Round" name="emp_status_written" type="object" 
-                    class="oe_highlight" states="resume_received"/>
+                    class="oe_highlight" states="resume_received" data-hotkey="y"/>
 
                     <button string="Tech Interview" name="emp_status_tech_interview" type="object" 
-                    class="oe_highlight" states="written_round" />
+                    class="oe_highlight" states="written_round" data-hotkey="y"/>
                     
                     <button string="HR Interview" name="emp_status_hr_interview" type="object" 
-                    class="oe_highlight" states="technical_interview" />
+                    class="oe_highlight" states="technical_interview" data-hotkey="y"/>
                     
                     <button string="Not Selected" name="emp_status_not_select" type="object" 
-                    class="oe_highlight" states="resume_received,written_round,technical_interview,hr_interview" />
+                    class="oe_highlight" states="resume_received,written_round,technical_interview,hr_interview" 
+                    data-hotkey="x"
+                    />
                 
                 </header>
 
@@ -78,7 +81,7 @@
                     </group>
 
                     <notebook>
-                        <page name="Performance" string="performance">
+                        <page name="Performance" string="Performance">
                             
                             <field name="performance_candidate" placeholder="discuss candidate performance ... its collaborative"
                             options="{'collaborative':true, 'resizable':true}"
@@ -114,6 +117,7 @@
             decoration-bf="state=='hr_interview'" 
             decoration-success="state=='onboarding'"
             multi_edit = "1"
+            sample="1"
             >
                 <field name="can_applied" />
                 <field name="priority" widget="badge"/>
