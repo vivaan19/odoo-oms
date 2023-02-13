@@ -33,10 +33,23 @@
                 <!-- before sheet after form tag is stausbar section -->
                 <header>
                     
-                    <field name="state" widget="statusbar" options="{'clickable':'1'}" />
-                    <button string="SELECT" name="emp_status_select" type="object" class="oe_highlight" />
-                    <button string="NOT SELECT" name="emp_status_not_select" type="object" 
-                    class="oe_highlight" />
+                    <!-- options="{'clickable':'1'}"  -->
+
+                    <field name="state" widget="statusbar" />
+                    
+                    <button string="Select" name="emp_status_select" type="object" class="oe_highlight" states="hr_interview"/>
+                    
+                    <button string="Written Round" name="emp_status_written" type="object" 
+                    class="oe_highlight" states="resume_received"/>
+
+                    <button string="Tech Interview" name="emp_status_tech_interview" type="object" 
+                    class="oe_highlight" states="written_round" />
+                    
+                    <button string="HR Interview" name="emp_status_hr_interview" type="object" 
+                    class="oe_highlight" states="technical_interview" />
+                    
+                    <button string="Not Selected" name="emp_status_not_select" type="object" 
+                    class="oe_highlight" states="resume_received,written_round,technical_interview,hr_interview" />
                 
                 </header>
 

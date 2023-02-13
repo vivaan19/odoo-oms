@@ -108,7 +108,9 @@ class CandidateApplied(models.Model):
             ('not_selected', 'Not Selected'),
         ],
         required=True,
-        tracking=True
+        tracking=True,
+        default='not_selected'
+        
     )
 
     priority = fields.Selection(
@@ -152,30 +154,48 @@ class CandidateApplied(models.Model):
         selection=[('male', 'Male'), ('female', 'Female'),
                    ('others', 'Others')],
         required=True,
-        tracking=True
+        tracking=True,
+        readonly=True
     )
 
     upload_res = fields.Binary(string="Uploaded Resume", required=True)
     upload_res_name = fields.Char(default="file")
-
-    def emp_status_select(self):
-        return {
-            'effect': {
-                'fadeout': 'slow',
-                'message': 'Candidate Selected !!!',
-                'type': 'rainbow_man',
-            }
-        }
-
-    def emp_status_not_select(self):
-        pass
-
+    
     @api.onchange('can_applied')
     def _onchange_can_applied(self):
         self.age = self.can_applied.age
         self.gender = self.can_applied.gender
         self.upload_res = self.can_applied.upload_res
         self.upload_res_name = self.can_applied.upload_res_name
+    
+    def emp_status_select(self):
+        # return {
+        #     'effect': {
+        #         'fadeout': 'slow',
+        #         'message': 'Candidate Selected !!!',
+        #         'type': 'rainbow_man',
+        #     }
+        # }
+        for rec in self:
+            rec.state = "onboarding"
+            rec.selection_status = "selected"
+
+    def emp_status_not_select(self):
+        for rec in self:
+            rec.state = "not_selected"
+    
+    def emp_status_written(self):
+        for rec in self:
+            rec.state = "written_round"
+    
+    def emp_status_tech_interview(self):
+        for rec in self:
+            rec.state = "technical_interview"
+
+    
+    def emp_status_hr_interview(self):
+        for rec in self:
+            rec.state = "hr_interview"
 
 
 class DepartmentDesc(models.Model):

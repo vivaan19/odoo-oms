@@ -65,3 +65,17 @@ Vid 46: enable multi editing in odoo - make tree view editable
 
 add - 
 multi_edit = "1" to tree view 
+
+------------------------------------------------------------------------------------------------------------
+
+Vid 47: control status bar using buttons 
+
+first add button with name="action_some_func" then define the function at the model 
+
+then access the field and assign the value to a specific state of statusbar 
+
+if we have to control the visibility of buttons when a specific state is matched, there is states 
+keyword 
+
+assign states keyword to button field then put comma separated name of states to be displayed so that
+button will appear when that specific state is matched.  
