@@ -69,6 +69,7 @@
         <field name="name">employee_join.view.tree</field>
         <field name="model">employee.join</field>
         <field name="arch" type="xml">
+            
             <tree string="emp_join_tree_view" 
             decoration-success="'intern' in dept_job_type"
             decoration-primary="'full_time' in dept_job_type"
@@ -85,7 +86,12 @@
 
                 ></field>
                 <field name="department_id" />
-                <field name="gender" />
+                
+                <field name="gender" optional="hide"/>
+                <field name="dept_exp" optional="hide"/>
+                <field name="upload_res" optional="hide"/>
+                <field name="b_date" optional="hide"/>
+
             </tree>
         </field>
     </record>

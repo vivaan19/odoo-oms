@@ -90,9 +90,15 @@
             >
                 <field name="can_applied" />
                 <field name="priority" widget="badge"/>
-                <field name="age" />
                 <field name="department" />
-                <field name="gender" />
+                <field name="activity_ids" widget="list_activity"></field>
+
+                <field name="age" optional="hide"/>
+                <field name="gender" optional="hide"/>
+                <field name="upload_res_name" optional="hide"/>
+
+
+                <!-- <field name="gender" /> -->
                 
                 <!-- <field name="upload_res"></field> -->
 
