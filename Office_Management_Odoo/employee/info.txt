@@ -35,7 +35,11 @@ Vid: 42 - Make HTML field collaborative
 make any html field collaborative by adding 
 option = "{'collaborative':true}" 
 
+-------------------------------------------------------------------------------------------------------------
 
+Vid 43: enable resizable option for html  
+
+option = "{'resizable':true}"
 
 
 

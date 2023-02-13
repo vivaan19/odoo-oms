@@ -63,12 +63,12 @@
                             <field name="hiring_manager_id" widget="many2one_avatar"></field>
                         </group>
                     </group>
-                    
+
                     <notebook>
                         <page name="Performance" string="performance">
                             
                             <field name="performance_candidate" placeholder="discuss candidate performance ... its collaborative"
-                            options="{'collaborative':true}"
+                            options="{'collaborative':true, 'resizable':true}"
     
                             ></field>
                         </page>
