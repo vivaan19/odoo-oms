@@ -69,12 +69,23 @@
         <field name="name">employee_join.view.tree</field>
         <field name="model">employee.join</field>
         <field name="arch" type="xml">
-            <tree string="emp_join_tree_view">
+            <tree string="emp_join_tree_view" 
+            decoration-success="'intern' in dept_job_type"
+            decoration-primary="'full_time' in dept_job_type"
+            decoration-info="'wfh' in dept_job_type"
+            >
                 <field name="name" />
                 <field name="age" />
+                <field name="dept_job_type" 
+                
+                decoration-success="'intern' in dept_job_type"
+                decoration-primary="'full_time' in dept_job_type"
+                decoration-info="'wfh' in dept_job_type"
+                widget='badge'
+
+                ></field>
                 <field name="department_id" />
                 <field name="gender" />
-
             </tree>
         </field>
     </record>
@@ -101,11 +112,24 @@
         <field name="name">department_desc.view.tree</field>
         <field name="model">department.desc</field>
         <field name="arch" type="xml">
-            <tree string="department_desc_job_posting">
+            <tree string="department_desc_job_posting"
+            
+            decoration-success="'intern' in dept_job_type"
+            decoration-primary="'full_time' in dept_job_type"
+            decoration-info="'wfh' in dept_job_type"
+            
+            >
                 <field name="dept_name"></field>
                 <!-- <field name="dept_job_desc"></field> -->
                 <field name="dept_exp"></field>
-                <field name="dept_job_type"></field>
+                <field name="dept_job_type" 
+                
+                decoration-success="'intern' in dept_job_type"
+                decoration-primary="'full_time' in dept_job_type"
+                decoration-info="'wfh' in dept_job_type"
+                widget='badge'
+                
+                ></field>
             </tree>
         </field>
     </record>

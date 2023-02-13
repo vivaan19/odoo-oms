@@ -117,12 +117,13 @@ class CandidateApplied(models.Model):
          ('3', 'Good'),
          ('4', 'Very Good'),
          ('5', 'Excellent')], string="Priority"
+         
     )
 
     state = fields.Selection(
         [
-            ('resume_recieved', 'Resume Recieved'),
-            ('wrritten_round', 'Wrritten Round'),
+            ('resume_received', 'Resume Received'),
+            ('written_round', 'Written Round'),
             ('technical_interview', 'Technical Interview'),
             ('hr_interview', 'HR Interview'),
             ('not_selected', 'Not Selected'),
@@ -130,7 +131,7 @@ class CandidateApplied(models.Model):
         ],
 
         string="Status",
-        default="resume_recieved",
+        default="resume_received",
         required=True
     )
 

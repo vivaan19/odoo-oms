@@ -12,7 +12,7 @@
         <field name="res_model">candidate.applied</field>
         <field name="view_mode">tree,form,kanban</field>
         <field name="domain">[]</field>
-        <field name="context">{}</field>
+        <field name="context">{'default_priority':'3'}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 No candidates still applied to any job ! 
@@ -80,7 +80,14 @@
         <field name="name">candidate_applied.view.tree</field>
         <field name="model">candidate.applied</field>
         <field name="arch" type="xml">
-            <tree string="candidate_applied_tree_view">
+            <tree string="candidate_applied_tree_view"
+
+            decoration-danger="state=='not_selected'" 
+            decoration-info="state=='written_round'" 
+            decoration-primary="state=='technical_interview'" 
+            decoration-bf="state=='hr_interview'" 
+            decoration-success="state=='onboarding'"
+            >
                 <field name="can_applied" />
                 <field name="priority" widget="badge"/>
                 <field name="age" />
@@ -93,10 +100,10 @@
                 decoration-danger="'not_selected' in selection_status" 
                 decoration-success="'selected' in selection_status" />
                 
-                <field name="state" widget="badge" 
-                decoration-muted="state=='resume_recieved'" 
+                <field name="state" widget="badge"
+                decoration-muted="state=='resume_received'" 
                 decoration-danger="state=='not_selected'" 
-                decoration-info="state=='wrritten_round'" 
+                decoration-info="state=='written_round'" 
                 decoration-primary="state=='technical_interview'" 
                 decoration-bf="state=='hr_interview'" 
                 decoration-success="state=='onboarding'" />

@@ -1,0 +1,7 @@
+Video: 38 - give color for tree view records
+to add decoration in tree view, in tree tag give the attribute value-> 
+
+decoration-info="'val_name' in field_name" -> if this is a selection field 
+
+Vid: 39 - widget activity in odoo - list activity in odoo 
+to add some icons in a tree view field we use this
