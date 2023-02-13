@@ -87,3 +87,34 @@ Vid 48: Data hot key - enable button shortcuts
 hot keys are those keys when combined with alt do auto clicking of a button 
 
 to assign a hot-key to buttons of form view, in button field add data-hotkey = "<hot-key-letter>"
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+Vid 49: one2many -> done 
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Vid 50: tree view editable -> top -> done 
+
+----------------------------------------------------------------------------------------------
+
+Vid 51: Hide One2many Column Based On Parent Record In Odoo 
+
+in any one to many column if we have to hide a particular column when a specific condition is met then we have use this 
+inside the field which we have to add 
+
+attrs = "{column_invisible : [('parent.<dependent_col>', '=', True)]}
+
+-------------------------------------------------------------------------------------------------
+
+Vid 52: How To Show Field Or Button Only In Developer Mode In Odoo 
+
+in any field do -> groups="base.group_no_one" 
+
+if this attribute is applied to any field then the field will only visible in Developer mode. 
+
+---------------------------------------------------------------------------------------------------
+
+Vid 53: 
+
+

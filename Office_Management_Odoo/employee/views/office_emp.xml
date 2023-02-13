@@ -115,7 +115,7 @@
                     <notebook>
                         <page name="employee_work_info_company" string="Company Information">
                             <field name="employee_more_details">
-                                <tree>
+                                <tree editable="top">
 
                                     <field name="company_name"></field>
                                     <field name="work_location"></field>
