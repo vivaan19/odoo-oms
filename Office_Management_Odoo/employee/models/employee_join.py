@@ -8,11 +8,18 @@ class EmployeeJoin(models.Model):
     _name = "employee.join"
     _description = "Model for candidates to apply for a job"
     _inherit = ['mail.thread', 'mail.activity.mixin']
+    _rec_name = "can_id"
 
     name = fields.Char(string="Candidate Name", required=True)
 
-    age = fields.Char("Employee Age", compute="_compute_age",
-                      default="Not Specified birthdate", tracking=True)
+    can_id = fields.Char(string="Candidate Id", compute='_compute_can_id' )
+    
+    @api.depends('can_id')
+    def _compute_can_id(self):
+        for record in self:
+            record.can_id = f'{record.name.upper()}000{record.id}'
+
+    age = fields.Char("Employee Age", default="Not Specified birthdate", tracking=True)
     
     gender = fields.Selection(
         string='Gender',
@@ -21,8 +28,6 @@ class EmployeeJoin(models.Model):
         required=True,
         tracking=True
     )
-
-    
 
     # add an active field if the record archived active would be false, and unarchive active will be true
     # active is reserved keyword and will add archive and unarchive in actions menu
@@ -36,14 +41,21 @@ class EmployeeJoin(models.Model):
     upload_res = fields.Binary(string="Upload Resume", required=True)
     upload_res_name = fields.Char()
 
-    def _compute_age(self):
-        for emp in self:
-            today = date.today()
-            if emp.b_date:
-                emp.age = today.year - emp.b_date.year
-            else:
-                emp.age = "Birthdate not specified"
+    # def _compute_age(self):
+    #     for emp in self:
+    #         today = date.today()
+    #         if emp.b_date:
+    #             emp.age = today.year - emp.b_date.year
+    #         else:
+    #             emp.age = "Birthdate not specified"
     
+    @api.onchange('b_date')
+    def _onchange_b_date(self):
+        today = date.today()
+        if self.b_date:
+            self.age = today.year - self.b_date.year - 1
+        else:
+            self.age = "Birthdate not specified"
 
     # onchange fields 
 
@@ -206,7 +218,7 @@ class DepartmentDesc(models.Model):
 
     _name = "department.desc"
     _description = "Number of departments in office"
-    _rec_name = "dept_name"
+    _rec_name = "job_id"
 
     # department name to be added
     dept_name = fields.Selection(
@@ -217,6 +229,16 @@ class DepartmentDesc(models.Model):
         required=True
         # tracking=True
     )
+
+    job_id = fields.Char("Job Id", compute='_compute_job_id' )
+    
+    def _compute_job_id(self):
+        for rec in self:
+            rec.job_id = f'[JOB00{rec.id}] {rec.dept_name.upper()}'
+
+    # @api.onchange('dept_name')
+    # def _onchange_dept_name(self):
+    #     self.job_id = f'JOB000{str(self.id).replace("NewId_", "")}'
 
     # department job description
     dept_job_dec = fields.Html("Job Description", required=True)

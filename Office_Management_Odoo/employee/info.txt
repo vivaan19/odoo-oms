@@ -115,6 +115,22 @@ if this attribute is applied to any field then the field will only visible in De
 
 ---------------------------------------------------------------------------------------------------
 
-Vid 53: 
+Vid 53: display notification odoo 
+
+message = 'Button click successfully'
+return {
+    'type': 'ir.actions.client',
+    'tag': 'display_notification',
+    'params': {
+        'message': message,
+        'type': 'success',
+        'sticky': True,
+}
+
+this is the way to display notification when a button is clicked.  --> not implemented yet 
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Vid 54: 
 
 

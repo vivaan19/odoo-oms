@@ -35,7 +35,6 @@
                             <field name="department_id" />
                             <field name="dept_exp" />
                             <field name="dept_job_type" />
-                            <field name="gender" />
                             <field name="department_copy" 
                             invisible="1"
                              />
@@ -47,6 +46,8 @@
                             <field name="active" invisible="true" />
                             <field name="upload_res" filename="upload_res_name" />
                             <field name="upload_res_name" invisible="true" />
+                            <field name="gender" />
+
                         </group>
                         <group>
                             <field name="dept_job_dec" />
@@ -76,6 +77,7 @@
             decoration-info="'wfh' in dept_job_type"
             sample="1" multi_edit = "1"
             >
+                <field name="can_id"></field>
                 <field name="name" />
                 <field name="age" />
                 <field name="dept_job_type" 
@@ -126,17 +128,19 @@
             decoration-info="'wfh' in dept_job_type"
             multi_edit = "1"
             >
-                <field name="dept_name"></field>
-                <!-- <field name="dept_job_desc"></field> -->
-                <field name="dept_exp"></field>
-                <field name="dept_job_type" 
+            <field name="job_id"></field>
+            <field name="dept_name"></field>
+            <!-- <field name="dept_job_desc"></field> -->
+            <field name="dept_exp"></field>
+            <field name="dept_job_type" 
                 
-                decoration-success="'intern' in dept_job_type"
-                decoration-primary="'full_time' in dept_job_type"
-                decoration-info="'wfh' in dept_job_type"
-                widget='badge'
-                
-                ></field>
+            decoration-success="'intern' in dept_job_type"
+            decoration-primary="'full_time' in dept_job_type"
+            decoration-info="'wfh' in dept_job_type"
+            widget='badge'
+            
+            ></field>
+
             </tree>
         </field>
     </record>
@@ -157,6 +161,7 @@
 
                         <group>
                             <field name="dept_job_dec"></field>
+                            <!-- <field name="job_id"></field> -->
                         </group>
                     </group>
                 </sheet>
