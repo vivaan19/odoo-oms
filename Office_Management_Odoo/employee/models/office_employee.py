@@ -10,9 +10,19 @@ class OfficeEmployee(models.Model):
 
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
+    _rec_name = "emp_id"
+
     # these are fields which are custom defined apart from agic fields
 
     name = fields.Char("Employee Name", required=True, tracking=True)
+
+    emp_id = fields.Char("Employee Id", compute="_compute_emp_id")
+
+    def _compute_emp_id(self):
+        for rec in self:
+            rec.emp_id = f'{rec.name.upper()}00{rec.id}'
+
+
     
     age = fields.Char("Employee Age", compute="_compute_age", default="Not Specified birthdate", tracking=True)
 

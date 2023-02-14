@@ -75,6 +75,7 @@
         <field name="model">office.employee</field>
         <field name="arch" type="xml">
             <tree string="Office_employee_tree_view" sample="1" multi_edit = "1">
+                <field name="emp_id"></field>
                 <field name="name" />
                 <field name="age" />
                 <field name="department" />

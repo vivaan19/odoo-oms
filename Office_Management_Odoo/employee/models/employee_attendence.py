@@ -17,7 +17,7 @@ class EmployeeAttendance(models.Model):
 
     # these are fields which are custom defined apart from magic fields
     # this is a many to one field here first parameter is comodel name that is to be linked 
-    emp_name_id = fields.Many2one(comodel_name="office.employee", string="Employee Name", required=True)
+    emp_name_id = fields.Many2one(comodel_name="office.employee", string="Employee Id", required=True)
 
     # today_date = fields.Date("Today Date", default=date.today(), readonly=True)
 
@@ -61,9 +61,10 @@ class EmployeeLeaveApply(models.Model):
     _rec_name = "leave_id"
 
     emp_name_id = fields.Many2one(
-        string='Employee Name',
+        string='Employee Id',
         comodel_name='office.employee',
     )
+
 
     emp_leave_start = fields.Date(string="Leave start date", required=True)
 
@@ -73,20 +74,11 @@ class EmployeeLeaveApply(models.Model):
         string='Leave reason',
         required=True
     )
-
-    leave_id = fields.Char(string="Leave Unique ID", 
-        compute='_compute_leave_id' )
     
     apply_status = fields.Boolean(string="Apply Status", readonly=True)
+
+    is_leave = fields.Boolean(string="", default=True)
     
-    def _compute_leave_id(self):
-        for record in self:
-            if len(record.emp_name_id.name) > 2:
-                record.leave_id = f'{record.emp_name_id.name[:3].upper()}00{random.randint(100,999)}'
-            elif len(record.emp_name_id.name) == 2:
-                record.leave_id = f'{record.emp_name_id.name[:2].upper()}00{random.randint(100,999)}'
-            else: 
-                record.leave_id = ""
 
 class grantLeave(models.Model):
     _name = "employee.grant.leave"
