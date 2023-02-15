@@ -131,6 +131,16 @@ this is the way to display notification when a button is clicked.  --> not imple
 
 -------------------------------------------------------------------------------------------------------------------------
 
-Vid 54: 
+Info: inheriting a built-in model - odoo 
 
+1. add the technical name of module in the depends list of manifest file. 
+
+2. create a model of and use _inherit tag assign it a value of the model name of builtin model 
+
+3. now in views inherit views in inherit id give name of that view external id 
+
+4. in model give name of model name of that view 
+
+5. and then in xpath give in what fields to edit according to the condition in attribute
+ 
 
