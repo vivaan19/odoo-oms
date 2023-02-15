@@ -58,7 +58,7 @@ class EmployeeAttendance(models.Model):
 class EmployeeLeaveApply(models.Model):
     _name = "employee.leave.apply"
     _description = "Employee now can apply for a leave and wait util the leave is granted"
-    _rec_name = "leave_id"
+    _rec_name = "emp_name_id"
 
     emp_name_id = fields.Many2one(
         string='Employee Id',
@@ -78,6 +78,13 @@ class EmployeeLeaveApply(models.Model):
     apply_status = fields.Boolean(string="Apply Status", readonly=True)
 
     is_leave = fields.Boolean(string="", default=True)
+
+    days = fields.Char("Total days", compute="_compute_days")
+
+    def _compute_days(self):
+        for rec in self:
+            diff = rec.emp_leave_end - rec.emp_leave_start
+            rec.days = diff.days
     
 
 class grantLeave(models.Model):
@@ -87,9 +94,8 @@ class grantLeave(models.Model):
 
     emp_leave_id = fields.Many2one(
         string="Employee leave it",
-        required=True
+        comodel_name='employee.leave.apply'        
     )
-
     
 
 

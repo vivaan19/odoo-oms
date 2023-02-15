@@ -124,11 +124,12 @@
         <field name="model">employee.leave.apply</field>
         <field name="arch" type="xml">
             <tree string="apply_for_leave_tree_view" sample="1">
-                <field name="leave_id"></field>
+                <!-- <field name="leave_id"></field> -->
                 <field name="emp_name_id"></field>
                 <field name="emp_leave_start"></field>
                 <field name="emp_leave_end"></field>
                 <field name="apply_status"></field>
+                <field name="days"></field>
                 <!-- <field name="leave_reason"></field> -->
             </tree>
 
@@ -147,12 +148,13 @@
                         <group>
                             <field name="emp_name_id"></field>
                             <field name="emp_leave_start"></field>
+                            <field name="days"></field>
                         </group>
                         <group>
 
                             <field name="emp_leave_end"></field>
                             <field name="leave_reason"></field>
-                            <field name="leave_id" readonly="1"></field>
+                            <!-- <field name="leave_id" readonly="1"></field> -->
                             <field name="apply_status"></field>
                         </group>
 
@@ -162,15 +164,17 @@
         </field>
     </record>
 
-
-    <record id="employee_leave_apply_action" model="ir.actions.act_window">
+    <!-- action for granting leave  -->
+    <record id="employee_leave_grant_action" model="ir.actions.act_window">
         <field name="name">Grant Leave</field>
         <field name="res_model">employee.leave.apply</field>
         <field name="view_mode">tree,form</field>
-        <field name="domain">[]</field>
+        <field name="domain">[('is_leave','=',true)]</field>
         <field name="context">{}</field>
         <field name="help" type="html">
-            
+            <p class="o_view_nocontent_smiling_face">
+                No one has applied for leave ! 
+            </p>
         </field>
     </record>
 
