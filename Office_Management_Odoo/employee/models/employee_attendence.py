@@ -79,12 +79,97 @@ class EmployeeLeaveApply(models.Model):
 
     is_leave = fields.Boolean(string="", default=True)
 
-    days = fields.Char("Total days", compute="_compute_days")
+    state = fields.Selection(
+        [
+            ('leave_rec', 'Leave Received'),
+            ('leave_granted', 'Leave Granted'),
+        ],
 
-    def _compute_days(self):
+        string="Status",
+        default="leave_rec",
+        required=True,
+        # readonly=True
+    )
+
+    # compute="_compute_days"
+    days = fields.Char("Total days")
+
+    
+    @api.onchange('emp_leave_end')
+    def _onchange_days(self):
+        diff = self.emp_leave_end - self.emp_leave_start
+        self.days = diff
+        # print(type(self.days))
+        self.days = self.days.split()[0]
+
+        if int(self.days) < 0:
+            self.days = "-1"
+        else:
+            self.days = self.days
+    
+    def emp_leave_check(self):
+
+        message_success = "Leave applied successfully"
         for rec in self:
-            diff = rec.emp_leave_end - rec.emp_leave_start
-            rec.days = diff.days
+            
+            if int(rec.days) > 30:
+                message_fail = f"Leave days - {rec.days} is greater than 30"
+                
+                return{
+                    'type': 'ir.actions.client',
+                    'tag': 'display_notification',
+
+                    'params': {
+                        'message': message_fail,
+                        'type': 'danger',
+                        'sticky': False,
+                    }
+                }
+            
+            elif int(rec.days) < 0:
+                message_warn = f"Leave end date is smaller than leave start date change it"
+                
+                return{
+                    'type': 'ir.actions.client',
+                    'tag': 'display_notification',
+
+                    'params': {
+                        'message': message_warn,
+                        'type': 'warning',
+                        'sticky': False,
+                    }
+                }
+            
+            else:
+                message_success = "Leave applied successfully"
+
+                rec.state = 'leave_granted'
+                # return{
+                #     'type': 'ir.actions.client',
+                #     'tag': 'display_notification',
+
+                #     'params': {
+                #         'message': message_success,
+                #         'type': 'success',
+                #         'sticky': False,
+                #     }
+                # }
+
+                
+
+
+
+
+
+
+
+    
+    
+
+    # def _compute_days(self):
+    #     for rec in self:
+    #         diff = rec.emp_leave_end - rec.emp_leave_start
+    #         rec.days = diff.days
     
 
 class grantLeave(models.Model):

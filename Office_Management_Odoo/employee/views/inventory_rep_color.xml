@@ -20,7 +20,7 @@
                 
             </xpath>
 
-            <xpath expr="/tree/field[@name='product_max_qty']" position="after">
+            <xpath expr="//tree//field[@name='product_max_qty']" position="after">
                 <field name="quantity_diff" /> 
             </xpath>
             

@@ -142,6 +142,15 @@
         <field name="model">employee.leave.apply</field>
         <field name="arch" type="xml">
             <form string="">
+                
+                <header>
+                    <field name="state" widget="statusbar" />
+
+                    <button string="Click to Apply Leave" name="emp_leave_check" type="object" class="oe_highlight" 
+                    states="leave_rec" data-hotkey="y"/>
+
+                </header>
+
                 <sheet>
                     <group>
 

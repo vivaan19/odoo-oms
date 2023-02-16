@@ -142,5 +142,9 @@ Info: inheriting a built-in model - odoo
 4. in model give name of model name of that view 
 
 5. and then in xpath give in what fields to edit according to the condition in attribute
+
+xpath expressions :- 
+
+1. 
  
 
