@@ -92,7 +92,7 @@ class EmployeeLeaveApply(models.Model):
     )
 
     # compute="_compute_days"
-    days = fields.Char("Total days")
+    days = fields.Char("Leave days")
 
     
     @api.onchange('emp_leave_end')
@@ -109,7 +109,7 @@ class EmployeeLeaveApply(models.Model):
     
     def emp_leave_check(self):
 
-        message_success = "Leave applied successfully"
+        # message_success = "Leave applied successfully"
         for rec in self:
             
             if int(rec.days) > 30:
@@ -144,6 +144,7 @@ class EmployeeLeaveApply(models.Model):
                 message_success = "Leave applied successfully"
 
                 rec.state = 'leave_granted'
+                rec.apply_status = True
                 # return{
                 #     'type': 'ir.actions.client',
                 #     'tag': 'display_notification',
@@ -154,17 +155,6 @@ class EmployeeLeaveApply(models.Model):
                 #         'sticky': False,
                 #     }
                 # }
-
-                
-
-
-
-
-
-
-
-    
-    
 
     # def _compute_days(self):
     #     for rec in self:

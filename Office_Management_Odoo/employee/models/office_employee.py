@@ -20,7 +20,7 @@ class OfficeEmployee(models.Model):
 
     def _compute_emp_id(self):
         for rec in self:
-            rec.emp_id = f'{rec.name.upper()}00{rec.id}'
+            rec.emp_id = f'{rec.name.split()[0].upper()}00{rec.id}'
 
 
     
