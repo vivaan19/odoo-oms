@@ -157,7 +157,7 @@
                         <group>
                             <field name="emp_name_id"></field>
                             <field name="emp_leave_start"></field>
-                            <field name="days"></field>
+                            <field name="days" force_save="1"></field>
                         </group>
                         <group>
 

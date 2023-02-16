@@ -92,7 +92,7 @@ class EmployeeLeaveApply(models.Model):
     )
 
     # compute="_compute_days"
-    days = fields.Char("Leave days")
+    days = fields.Char("Leave days", readonly=True)
 
     
     @api.onchange('emp_leave_end')
