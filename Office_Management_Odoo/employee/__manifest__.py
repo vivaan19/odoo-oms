@@ -2,7 +2,7 @@
     'name': "Office Management System-Employee Section",
     'version': '1.0.0',
     'sequence': -100,
-    'depends': ['base', 'mail', 'stock'],
+    'depends': ['base', 'mail', 'stock', 'website'],
     # to add chatter field add mail to depends
     'author': "Vivaan",
     'category': 'Category',

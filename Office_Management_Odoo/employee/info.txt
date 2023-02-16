@@ -146,5 +146,7 @@ Info: inheriting a built-in model - odoo
 xpath expressions :- 
 
 1. 
- 
+ ---------------------------------------------------------------------------------------------------------------------------
+
+ website module - inherit it, then inherit a template of shipping address - default a field country to India 
 

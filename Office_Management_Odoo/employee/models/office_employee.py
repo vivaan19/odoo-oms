@@ -52,6 +52,10 @@ class OfficeEmployee(models.Model):
 
     b_date = fields.Date(string = "Birthdate", tracking=True)
 
+    # adding employee image 
+
+    emp_image = fields.Image(string="Image", tracking=True)
+
     # ---------------------------------------------------------------- relational fields
 
     employee_more_details = fields.One2many("employee.more.details", 'office_employee_id', string="Employee more details", tracking=True)

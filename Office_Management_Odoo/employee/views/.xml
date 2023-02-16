@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id="website_sale_cart_summary" name="Custom Field" inherit_id="website_sale.cart_summary">
+        <xpath expr="//*[@id='wrap']/div/div[2]/div[2]/div/form/div[1]/div[14]/select" position="inside">
+            
+        </xpath>
+    </template>
+</odoo>

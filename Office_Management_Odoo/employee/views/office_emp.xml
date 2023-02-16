@@ -98,8 +98,8 @@
             <!-- sheet tag creates a border around the view -->
 
             <form string="Office_Employee_Form_View">
-
                 <sheet>
+                    <field name="emp_image" widget="image" class="oe_avatar"></field>
                     <group>
                         <group>
                             <field name="name" help="Name of the employee"></field>
