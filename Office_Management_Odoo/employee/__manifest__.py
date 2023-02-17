@@ -15,7 +15,8 @@
         'views/emp_hobby.xml',
         'views/emp_join.xml',
         'views/candidate_review.xml',
-        'views/inventory_rep_color.xml',        
+        'views/inventory_rep_color.xml',
+        'views/inherit_shop_address.xml',
         'menu/office_employee_menu.xml',
     ],
 

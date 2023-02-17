@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    
+    <template id="custom_country" inherit_id="website_sale.address">
+        <xpath expr="//select[@id='country_id']" position="inside">
+            <option value="" selected="India">India</option>
+        </xpath>
+    </template>
+
+</odoo>
