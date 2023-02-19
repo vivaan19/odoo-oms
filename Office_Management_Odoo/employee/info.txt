@@ -150,3 +150,24 @@ xpath expressions :-
 
  website module - inherit it, then inherit a template of shipping address - default a field country to India 
 
+--------------------------------------------------------------------------------------------------------------------
+
+Boolean fields has a widget called boolean_toggle which changes the boolean UI from check-uncheck to toggle on-off.
+
+widget=boolean_toggle 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+color picker widget -> 1. define an integer field of name color
+                      2. In the views include this field with widget = color_picker 
+
+                      after adding the widget static colors will show 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+color widget -> 1. define a character field 
+                2. in views include this field with widget = color 
+
+                here dynamic colors will be shown 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

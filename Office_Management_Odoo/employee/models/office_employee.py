@@ -14,9 +14,9 @@ class OfficeEmployee(models.Model):
 
     # these are fields which are custom defined apart from agic fields
 
-    name = fields.Char("Employee Name", required=True, tracking=True)
+    name = fields.Char("Employee Name", required=True, tracking=True, copy=False, default="Unknown name")
 
-    emp_id = fields.Char("Employee Id", compute="_compute_emp_id")
+    emp_id = fields.Char("Employee Id", compute="_compute_emp_id", copy=False)
 
     def _compute_emp_id(self):
         for rec in self:
@@ -33,14 +33,19 @@ class OfficeEmployee(models.Model):
         ('helper', 'Helper'), ('director', 'Director')],
         help='This is for selection of departments in an office',
         required=True,
-        tracking=True
+        tracking=True,
+        copy=False,
+        default='sales'
     )
 
     gender = fields.Selection(
         string = 'Gender',
         selection = [('male', 'Male'), ('female', 'Female'), ('others', 'Others')],
         required=True,
-        tracking=True
+        tracking=True,
+        copy=False,
+        default='male'
+
     )
 
     # add an active field if the record archived active would be false, and unarchive active will be true
@@ -54,7 +59,7 @@ class OfficeEmployee(models.Model):
 
     # adding employee image 
 
-    emp_image = fields.Image(string="Image", tracking=True)
+    emp_image = fields.Image(string="Image", tracking=True, copy=False)
 
     # ---------------------------------------------------------------- relational fields
 
