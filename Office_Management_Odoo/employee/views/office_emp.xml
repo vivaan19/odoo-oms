@@ -140,7 +140,8 @@
                             <form>
                                 <group>
                                     <field name="emp_hobby" widget="many2many_tags"
-                                        icon="fa-solid fa-teddy-bear"></field>
+                                        icon="fa-solid fa-teddy-bear" 
+                                        options = "{'color_field':'color'}"></field>
                                 </group>
                             </form>
 

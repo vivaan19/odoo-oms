@@ -33,6 +33,7 @@
                 <sheet>
                     <group>
                         <field name="hobbies" />
+                        <field name="color" widget="color_picker"></field>
                     </group>
                 </sheet>
             </form>
@@ -46,6 +47,7 @@
         <field name="arch" type="xml">
             <tree string="employee_hobby_tree_view" sample="1" multi_edit = "1">
                 <field name="hobbies" />
+                <field name="color" widget="color_picker"></field>
             </tree>
         </field>
     </record>

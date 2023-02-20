@@ -103,3 +103,4 @@ class EmployeeHobby(models.Model):
     _rec_name = "hobbies"
 
     hobbies = fields.Char("Hobbies", required=True)
+    color = fields.Integer("Color", required=True)

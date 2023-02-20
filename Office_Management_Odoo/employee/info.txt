@@ -171,3 +171,6 @@ color widget -> 1. define a character field
                 here dynamic colors will be shown 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+To add color to many 2 many field -> use 
+options = "{'color_field':'color'}"
