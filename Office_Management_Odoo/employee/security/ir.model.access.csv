@@ -8,3 +8,4 @@ employee.access_candidate_applied,access_candidate_applied,employee.model_candid
 access_department_desc_user,employee.department.desc,model_department_desc,base.group_user,1,1,1,1
 access_employee_leave_apply_user,employee.employee.leave.apply,model_employee_leave_apply,base.group_user,1,1,1,1
 employee.access_employee_grant_leave,access_employee_grant_leave,employee.model_employee_grant_leave,base.group_user,1,1,1,1
+access_cancel_emp_rec_user,employee.cancel.emp.rec,model_cancel_emp_rec,base.group_user,1,1,1,1

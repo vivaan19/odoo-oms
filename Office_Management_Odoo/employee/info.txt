@@ -187,3 +187,20 @@ this view is applied for html fields code view enables anyone to view the html c
 is written in html field. 
 
 just add 'codeview':true in options dictionary 
+
+--------------------------------------------------------------------------------------------
+
+WIZARDS in odoo: 
+
+Wizards are popups which are used to store temporary information : 
+
+Such as if I want to download a document what format should it be pdf, doc, docx .. 
+
+so there will be a popup which would record the information 
+
+wizards use transient model which is used to temporary store the value 
+
+make a wizards folder 
+
+inherit : models.TransientModel 
+

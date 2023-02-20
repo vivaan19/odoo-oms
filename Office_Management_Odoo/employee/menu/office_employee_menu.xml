@@ -112,6 +112,13 @@
     parent="employee_join_menu"
     sequence="1"
   />
+
+  <menuitem
+    id="cancel_emp_application_menu"
+    name="Cancel Application"
+    action="employee.cancel_emp_rec_action"
+    parent="employee_join_menu"
+    sequence="4"/>
     
 
     
