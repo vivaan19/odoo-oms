@@ -10,7 +10,7 @@
     <record id="candidate_applied_action" model="ir.actions.act_window">
         <field name="name">Review Candidates</field>
         <field name="res_model">candidate.applied</field>
-        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_mode">tree,form,kanban,activity</field>
         <field name="domain">[]</field>
         <field name="context">{'default_priority':'3'}</field>
         <field name="help" type="html">
@@ -150,6 +150,30 @@
                 decoration-success="state=='onboarding'" />
 
             </tree>
+        </field>
+    </record>
+
+
+    <!-- activity view -->
+
+    <record id="candidate_applied_view_activity" model="ir.ui.view">
+        <field name="name">candidate.applied.view.activity</field>
+        <field name="model">candidate.applied</field>
+        <field name="arch" type="xml">
+            <activity string="Review Candidates Activity View">
+                <field name="can_applied"></field>
+                <!-- <field name="hiring_manager_id"></field> -->
+                <templates>
+                    <img t-att-src="activity_image('candidate.applied', 'image', record.hiring_manager_id.raw_value)" t-att-title="record.hiring_manager_id" alt="alt"></img>
+                    <div t-name="activity-box">
+                        <field name="hiring_manager_id"></field>
+                    </div>
+                    <!-- <div>
+                        <field name="can_applied"></field>
+
+                    </div> -->
+                </templates>
+            </activity>
         </field>
     </record>
 

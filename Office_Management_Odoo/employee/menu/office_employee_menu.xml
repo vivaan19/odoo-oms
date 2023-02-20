@@ -41,7 +41,7 @@
     <!-- employee attendance menu parent-->
     <menuitem
     id="employee_attendance_menu"
-    name="Employee Attendance"
+    name="Attendance"
     parent="employee"
     sequence="0"
   />
@@ -75,7 +75,7 @@
     <!-- employee hobby menu -->
     <menuitem
     id="employee_hobby_menu"
-    name="Employee Hobby"
+    name="Hobby"
     action="employee.action_employee_hobby"
     parent="employee"
     sequence="0"
@@ -84,7 +84,7 @@
     <!-- recruitment menu -->
     <menuitem
     id="employee_join_menu"
-    name="Employee Recruiment"
+    name="Recruitment"
     parent="employee"
     sequence="0"
   />
