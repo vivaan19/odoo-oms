@@ -84,8 +84,7 @@
                         <page name="Performance" string="Performance">
                             
                             <field name="performance_candidate" placeholder="discuss candidate performance ... its collaborative"
-                            options="{'collaborative':true, 'resizable':true}"
-    
+                            options="{'collaborative':true, 'resizable':true, 'codeview':true}"
                             ></field>
                         </page>
                     </notebook>

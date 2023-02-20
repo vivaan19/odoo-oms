@@ -174,3 +174,16 @@ color widget -> 1. define a character field
 
 To add color to many 2 many field -> use 
 options = "{'color_field':'color'}"
+
+----------------------------------------------------------------------------------------------------------------
+
+activity view complted added in candidate_review 
+
+---------------------------------------------------------------------------------------------------------
+
+code view for html field 
+
+this view is applied for html fields code view enables anyone to view the html code that 
+is written in html field. 
+
+just add 'codeview':true in options dictionary 
