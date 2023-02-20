@@ -14,6 +14,12 @@
                         <field name="emp_name"></field>
                         <field name="emp_rem_reason"></field>
                     </group>
+                    <footer>
+                        <button name="cancel_emp_application" string="Cancel Application" type="object" class="btn-primary"
+                        data-hotkey="q"/>
+
+                        <button special="cancel" data-hotkey="z" string="Discard" class="btn-secondary"/>
+                    </footer>
                 </sheet>
             </form>
         </field>
