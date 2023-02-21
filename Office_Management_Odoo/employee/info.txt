@@ -198,7 +198,7 @@ Such as if I want to download a document what format should it be pdf, doc, docx
 
 so there will be a popup which would record the information 
 
-wizards use transient model which is used to temporary store the value 
+wizards use transient model which is fused to temporary store the value 
 
 make a wizards folder 
 

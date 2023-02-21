@@ -12,7 +12,8 @@
                     <group>
                         <field name="emp_id"></field>
                         <field name="emp_name"></field>
-                        <field name="emp_rem_reason"></field>
+                        <field name="emp_job_apply"></field>
+                        <field name="emp_rem_reason"></field>   
                     </group>
                     <footer>
                         <button name="cancel_emp_application" string="Cancel Application" type="object" class="btn-primary"
