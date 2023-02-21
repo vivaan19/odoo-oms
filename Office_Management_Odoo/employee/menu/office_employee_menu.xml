@@ -1,27 +1,27 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- this is the root menu -->
-    <menuitem id="employee" name="Employees" web_icon="" sequence="0" />
+  <!-- this is the root menu -->
+  <menuitem id="employee" name="Employees" web_icon="" sequence="0" />
 
-    <!-- this is 1st level -->
-    <menuitem
+  <!-- this is 1st level -->
+  <menuitem
     id="employee_details"
     name="Details"
     parent="employee"
     sequence="0"
   />
-    
-    <!-- this is 2nd level -->
-    <menuitem
+
+  <!-- this is 2nd level -->
+  <menuitem
     id="employee_details_list"
     action="employee.action_office_management_employees"
     name="List of employees"
     parent="employee_details"
     sequence="0"
   />
-    <!-- 2nd level of first child : female employees -->
-    <menuitem
+  <!-- 2nd level of first child : female employees -->
+  <menuitem
     id="employee_detail_list_female"
     name="Female Employee"
     action="employee.office_employee_female_action"
@@ -29,8 +29,8 @@
     sequence="0"
   />
 
-    <!-- 2nd level of second child : male employees -->
-    <menuitem
+  <!-- 2nd level of second child : male employees -->
+  <menuitem
     id="employee_detail_list_male"
     name="Male Employee"
     action="employee.office_employee_male_action"
@@ -38,21 +38,21 @@
     sequence="1"
   />
 
-    <!-- employee attendance menu parent-->
-    <menuitem
+  <!-- employee attendance menu parent-->
+  <menuitem
     id="employee_attendance_menu"
     name="Attendance"
     parent="employee"
     sequence="0"
   />
-  
+
   <!-- emp attendance 1st submenu to view attendance -->
   <menuitem
     id="employee_attendance_view_attendance_menu"
     name="View Employee Attendance"
     action="employee.action_employee_attendance"
     parent="employee_attendance_menu"
-    sequence="1"/>
+    sequence="1" />
 
   <!-- emp attendance 2nd submenu to apply for leave -->
   <menuitem
@@ -60,7 +60,7 @@
     name="Apply Leave"
     action="employee.employee_leave_apply_action"
     parent="employee_attendance_menu"
-    sequence="2"/>
+    sequence="2" />
 
   <!-- emp attendance 3rd submenu to grant for a leave -->
   <menuitem
@@ -68,12 +68,11 @@
     name="Grant Leave"
     action="employee.employee_leave_grant_action"
     parent="employee_attendance_menu"
-    sequence="3"/>
+    sequence="3" />
 
 
-
-    <!-- employee hobby menu -->
-    <menuitem
+  <!-- employee hobby menu -->
+  <menuitem
     id="employee_hobby_menu"
     name="Hobby"
     action="employee.action_employee_hobby"
@@ -81,31 +80,31 @@
     sequence="0"
   />
 
-    <!-- recruitment menu -->
-    <menuitem
+  <!-- recruitment menu -->
+  <menuitem
     id="employee_join_menu"
     name="Recruitment"
     parent="employee"
     sequence="0"
   />
-    
-    <menuitem
+
+  <menuitem
     id="employee_join_menu_apply"
     name="Apply Now"
     action="employee.employee_join_action"
     parent="employee_join_menu"
     sequence="2"
   />
-    
-    <menuitem
+
+  <menuitem
     id="employee_join_menu_candidates_apply"
     name="Review Candidates"
     action="employee.candidate_applied_action"
     parent="employee_join_menu"
     sequence="3"
   />
-    
-    <menuitem
+
+  <menuitem
     id="department_desc_job_posting"
     name="Post a job"
     action="employee.department_desc_action"
@@ -118,13 +117,14 @@
     name="Cancel Application"
     action="employee.cancel_emp_rec_action"
     parent="employee_join_menu"
-    sequence="4"/>
-    
+    sequence="4" />
 
-    
-<!-- lower sequence number higher is the order -->
-<!-- menu will only appear when liked with actions -->
-<!-- if we have sub-menu and to appear that we have to link the last level of sub-menu with an action -->
-<!-- to create submenus the id should be unique in menuitem and parent tag will correspond to id of base menuitem -->
+
+  <!-- lower sequence number higher is the order -->
+  <!-- menu will only appear when liked with actions -->
+  <!-- if we have sub-menu and to appear that we have to link the last level of sub-menu with an
+  action -->
+  <!-- to create submenus the id should be unique in menuitem and parent tag will correspond to id
+  of base menuitem -->
 
 </odoo>

@@ -38,4 +38,6 @@
         <field name="domain">[]</field>
         <field name="context">{}</field>
     </record>
+
+    
 </odoo>
