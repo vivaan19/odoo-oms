@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <report
+    
+        id="employee_details_report"
+        string="Employee Detail"
+        model="office.employee"
+        report_type="qweb-pdf"
+        name="employee.report_employee_details"
+        file="employee.report_employee_details"
+    
+    />
+</odoo>

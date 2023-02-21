@@ -6,6 +6,10 @@
     # to add chatter field add mail to depends
     'author': "Vivaan",
     'category': 'Category',
+    
+
+  
+
     'data' : [
         # always load security, views, menu
         'security/ir.model.access.csv',
@@ -19,14 +23,17 @@
         'views/inventory_rep_color.xml',
         'views/inherit_shop_address.xml',
         'menu/office_employee_menu.xml',
+        'report/employee_details.xml',
+        'report/employee_detail_report.xml',
     ],
+
 
     'demo' : [],
     'license' : 'AGPL-3',
     'auto_install' : False, 
     'application':True,
     'summary' : "Office management system for employees", 
-    'description': """ Office Management system for employees""", 
+    'description': """ Office Management system for employees """, 
 
     # Description text
     # data files always loaded at installation

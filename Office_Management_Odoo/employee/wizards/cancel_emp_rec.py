@@ -8,8 +8,8 @@ class CancelEmpRec(models.TransientModel):
     emp_id = fields.Many2one("employee.join", string="Employee Id")
     
     emp_name = fields.Char("Name", related='emp_id.name')
-    
-    emp_job_apply = fields.Many2one("", related='emp_id.department_id')
+
+    emp_job_apply = fields.Selection("Department",related='emp_id.department_id.name')
 
     emp_rem_reason = fields.Text("Application Removal Reason")
     
