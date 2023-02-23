@@ -15,19 +15,21 @@
                         <field name="emp_job_apply"></field>
                         <field name="dept_exp"></field>
                         <field name="dept_job_type"></field>
-                        <field name="emp_rem_reason"></field>   
+                        <field name="emp_rem_reason"></field>
                     </group>
                     <footer>
-                        <button name="cancel_emp_application" string="Cancel Application" type="object" class="btn-primary"
-                        data-hotkey="q"/>
+                        <button name="cancel_emp_application" string="Cancel Application"
+                            type="object" class="btn-primary"
+                            data-hotkey="q" />
 
-                        <button special="cancel" data-hotkey="z" string="Discard" class="btn-secondary"/>
+                        <button special="cancel" data-hotkey="z" string="Discard"
+                            class="btn-secondary" />
                     </footer>
                 </sheet>
             </form>
         </field>
     </record>
-    
+
     <!-- wizard action -->
 
     <record id="cancel_emp_rec_action" model="ir.actions.act_window">
@@ -39,5 +41,5 @@
         <field name="context">{}</field>
     </record>
 
-    
+
 </odoo>
