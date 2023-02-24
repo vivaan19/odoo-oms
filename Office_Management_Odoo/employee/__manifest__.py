@@ -22,9 +22,10 @@
         'views/candidate_review.xml',
         'views/inventory_rep_color.xml',
         'views/inherit_shop_address.xml',
-        'menu/office_employee_menu.xml',
-        'report/employee_details.xml',
         'report/employee_detail_report.xml',
+        'report/employee_details.xml',
+        'menu/office_employee_menu.xml',
+
     ],
 
 

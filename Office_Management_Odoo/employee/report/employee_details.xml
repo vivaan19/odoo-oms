@@ -17,7 +17,7 @@
 
                         <!-- add one2many fields in report -->
                         <b>Company Details</b>
-                        <t t-esc="doc.employee_more_details.company_name"/>
+                        <!-- <t t-esc="doc.employee_more_details.company_name"/> -->
                     </div>
                 </t>
             </t>

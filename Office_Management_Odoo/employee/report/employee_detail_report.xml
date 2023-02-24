@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <odoo>
-    <report
+
+    <!-- <report
     
         id="employee_details_report"
         string="Employee Detail"
@@ -10,5 +11,17 @@
         name="employee.report_employee_details"
         file="employee.report_employee_details"
     
-    />
+    /> -->
+
+    <record id="action_report_employee_details" model="ir.actions.report">
+        <field name="name">Employee Details Report </field>
+        <field name="model">office.employee</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">employee.report_employee_details</field>
+        <field name="report_file">employee.report_employee_details</field>
+        <!-- <field name="print_report_name">emp_detail</field> -->
+        <field name="binding_model_id" ref="model_office_employee"/>
+        <field name="binding_type">report</field>
+    </record>
+
 </odoo>
