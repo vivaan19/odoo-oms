@@ -20,7 +20,7 @@
         <field name="report_name">employee.report_employee_details</field>
         <field name="report_file">employee.report_employee_details</field>
         <!-- <field name="print_report_name">emp_detail</field> -->
-        <field name="binding_model_id" ref="model_office_employee"/>
+        <field name="binding_model_id" ref="model_office_employee"/>    
         <field name="binding_type">report</field>
     </record>
 

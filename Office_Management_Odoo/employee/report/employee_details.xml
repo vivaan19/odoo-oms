@@ -6,10 +6,10 @@
                 <t t-call="web.basic_layout">
                     <div class="page">
                         <center><h2>Employee Details</h2></center><br/><br/>
-                        <b>Name :</b><t t-esc="doc.name"/><br/>
-                        <b>Employee Id : </b><t t-esc="doc.emp_id"/><br/>
-                        <b>Age : </b><t t-esc="doc.age"/><br/>
-                        <b>Department : </b><t t-esc="doc.department"/> <br />
+                        <b>Name :</b><t t-esc="doc.name"/><br/><br />
+                        <b>Employee Id : </b><t t-esc="doc.emp_id"/><br/><br />
+                        <b>Age : </b><t t-esc="doc.age"/><br/><br />
+                        <b>Department : </b><t t-esc="doc.department"/> <br /><br />
                         
                         <!-- add many2many fields in report -->
                         <b>Employee Hobbies: </b>
