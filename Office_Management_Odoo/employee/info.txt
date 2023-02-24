@@ -198,9 +198,69 @@ Such as if I want to download a document what format should it be pdf, doc, docx
 
 so there will be a popup which would record the information 
 
-wizards use transient model which is fused to temporary store the value 
+wizards use transient model which is used to temporary store the value 
 
 make a wizards folder 
 
-inherit : models.TransientModel 
+inherit : models.TransientModel
+
+add the fields which could store temporary value 
+
+add the action and form view in xml file 
+
+--------------------------------------------------------------------------------------------
+
+load demo data in the project 
+
+make a data directory and add an xml file 
+
+data should be loaded through record tag which specify id and data 
+
+in manifest file load the data directory just below the security 
+
+sample : 
+<record id="some_id" model="model.name">
+
+<field name="field_name">Sample_data</field>
+<field name="field_name">Sample_data</field>
+<field name="field_name">Sample_data</field>
+<field name="field_name">Sample_data</field>
+
+</record> 
+
+--------------------------------------------------------------------------------------------
+
+load data through csv file 
+
+csv file name : model.name.csv 
+
+inside model.name.csv 
+
+id,field_name1,field_name2 
+id_data_1,field_name_1_data,field_name2_data 
+....
+....
+
+the data will map the fields according to the specified headers 
+
+--------------------------------------------------------------------------------------------
+scaffold command is used to create sample module  
+
+command : 
+
+$ ./odoo-bin scaffold <new_module_name> <path/to/new/module/to/create>
+
+--------------------------------------------------------------------------------------------
+
+inherit a model  
+
+to inherit a built-in-model use _inherit key and specify model name 
+
+for example inherit sale.order model 
+
+_inherit = "sale.order" 
+
+--------------------------------------------------------------------------------------------
+
+add new field to an inherited module 
 
