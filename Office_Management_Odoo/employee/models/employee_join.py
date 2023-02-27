@@ -12,6 +12,13 @@ class EmployeeJoin(models.Model):
 
     name = fields.Char(string="Candidate Name", required=True)
 
+    @api.onchange('name')
+    def _onchange_name(self):
+        if self.name:
+            self.name = self.name.capitalize()  
+        else:
+            self.name = ""
+
     can_id = fields.Char(string="Candidate Id", compute='_compute_can_id' )
     
     @api.depends('can_id')
