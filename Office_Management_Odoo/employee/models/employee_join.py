@@ -22,7 +22,8 @@ class EmployeeJoin(models.Model):
 
     can_id = fields.Char(string="Candidate Id")
 
-     # inherit create method when it trigerred record is saving 
+    # inherit create method when it trigerred record is saving 
+
     @api.model
     def create(self, values):
 
@@ -31,9 +32,22 @@ class EmployeeJoin(models.Model):
 
         values['can_id'] = self.env['ir.sequence'].next_by_code('employee.apply.code')
 
+        print("--------------------------------------->>>>>>>>>>>>>>",type(values['can_id']))
+
+        vals = {'age':values['age'], 'can_applied': self.can_id}
+        print(">>>>>>",vals)
+
+        # self.env['candidate.applied'].create(vals)
+
         result = super(EmployeeJoin, self).create(values)
     
         return result
+    
+    def _pass_vals(self):
+        vals = {
+            'can_applied':self.can_id
+        }
+        self.env['candidate.applied'].create(vals)
     
     # @api.depends('can_id')
     # def _compute_can_id(self):
@@ -122,6 +136,9 @@ class EmployeeJoin(models.Model):
         self.dept_exp = self.department_id.dept_exp
         self.dept_job_type = self.department_id.dept_job_type
         self.department_copy = self.department_id.dept_name
+    
+    # , 'gender': self.gender, 'upload_res_name': self.upload_res_name, 
+    #             'upload_res': self.upload_res, }
 
 
 class CandidateApplied(models.Model):
