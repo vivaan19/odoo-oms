@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- sequence for employee join model for employee apply -->
+    
+    <record id="employee_apply_code" model="ir.sequence">
+
+        <field name="name">Employee Apply Code</field>
+        <field name="code">employee.apply.code</field>
+        <field name="prefix">CAN</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"></field>  
+        
+    </record>
+
+    <!-- sequence for office employee model office.employee -->
+
+    <record id="office_employee_id" model="ir.sequence">
+
+        <field name="name">Office Employee Code</field>
+        <field name="code">office.employee.code</field>
+        <field name="prefix">EMP</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"></field>  
+        
+    </record>
+    
+</odoo>

@@ -1,4 +1,4 @@
-from odoo import fields, models 
+from odoo import fields, models, api
 from datetime import datetime, date
 
 class OfficeEmployee(models.Model):
@@ -16,11 +16,32 @@ class OfficeEmployee(models.Model):
 
     name = fields.Char("Employee Name", required=True, tracking=True, copy=False, default="Unknown name")
 
-    emp_id = fields.Char("Employee Id", compute="_compute_emp_id", copy=False)
+    emp_id = fields.Char("Employee Id")
 
-    def _compute_emp_id(self):
-        for rec in self:
-            rec.emp_id = f'{rec.name.split()[0].upper()}00{rec.id}'
+    
+    @api.model
+    def create(self, values):
+        """
+            Create a new record for a model OfficeEmployee
+            @param values: provides a data for new record
+    
+            @return: returns a id of new record
+        """
+
+        print("------------------------------------Create method of office employee working")
+
+        values['emp_id'] = self.env['ir.sequence'].next_by_code('office.employee.code')
+    
+        result = super(OfficeEmployee, self).create(values)
+    
+        return result
+    
+
+
+    # replaced with sequence by inheriting create method and modifying in it. 
+    # def _compute_emp_id(self):
+    #     for rec in self:
+    #         rec.emp_id = f'{rec.name.split()[0].upper()}00{rec.id}'
 
 
     
