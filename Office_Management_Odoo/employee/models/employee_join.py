@@ -19,12 +19,31 @@ class EmployeeJoin(models.Model):
         else:
             self.name = ""
 
-    can_id = fields.Char(string="Candidate Id", compute='_compute_can_id' )
+
+    can_id = fields.Char(string="Candidate Id")
+
+     # inherit create method when it trigerred record is saving 
+    @api.model
+    def create(self, values):
+
+
+        print("-----------employee Create function is executing")    
+
+        values['can_id'] = self.env['ir.sequence'].next_by_code('employee.apply.code')
+
+        result = super(EmployeeJoin, self).create(values)
     
-    @api.depends('can_id')
-    def _compute_can_id(self):
-        for record in self:
-            record.can_id = f'{record.name.upper()}000{record.id}'
+        return result
+    
+    # @api.depends('can_id')
+    # def _compute_can_id(self):
+    #     for record in self:
+    #         nam = record.name.strip()
+
+    #         if len(nam) < 2:
+    #             record.can_id = f'{nam.upper()[:len(nam)]}000{record.id}'
+    #         else:
+    #             record.can_id = f'{nam.upper()[:2]}000{record.id}'
 
     age = fields.Char("Employee Age", default="Not Specified birthdate", tracking=True)
     
@@ -217,6 +236,8 @@ class CandidateApplied(models.Model):
     def emp_status_hr_interview(self):
         for rec in self:
             rec.state = "hr_interview"
+    
+    
 
 
 class DepartmentDesc(models.Model):

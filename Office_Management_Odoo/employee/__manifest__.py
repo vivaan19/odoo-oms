@@ -13,6 +13,7 @@
     'data' : [
         # always load security, views, menu
         'security/ir.model.access.csv',
+        'data/employee_apply.xml',
         'wizards/cancel_emp_transient_model.xml',
         'views/office_emp.xml',
         'views/emp_attendance.xml', 
