@@ -15,7 +15,7 @@
             "args": [
                 "--config=/home/hac/workspace/odoo16/odoo/debian/odoo.conf",
                 "-p",
-                "8888",
+                "9999",
                 "--database=oms_10_02",
                 "--dev=xml",
                 "-u",

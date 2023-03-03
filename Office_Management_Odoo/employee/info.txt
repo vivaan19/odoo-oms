@@ -264,3 +264,22 @@ _inherit = "sale.order"
 
 add new field to an inherited module 
 
+
+-----------------------------------------------------------------------------------------------------------------
+
+to see the request that is generated the flag will be: 
+--log-request 
+
+to see the response 
+--log-response 
+
+debug sql queries of orm 
+--log-sql 
+
+to save log in a particular file 
+--logfile <name_of_file>.log 
+
+
+
+
+
