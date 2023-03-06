@@ -67,6 +67,7 @@
                     <group>
                         <group>
                             <field name="can_applied" />
+                            <field name="can_name"/>
                             <field name="age" />
                             <field name="department" />
                             <field name="gender" />
@@ -119,6 +120,7 @@
             sample="1"
             >
                 <field name="can_applied" />
+                <field name="can_name"/>
                 <field name="priority" widget="badge"/>
                 <field name="department" />
                 <field name="activity_ids" widget="list_activity"></field>

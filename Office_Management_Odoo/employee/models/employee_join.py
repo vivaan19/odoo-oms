@@ -36,7 +36,7 @@ class EmployeeJoin(models.Model):
 
         vals = {'age':values['age'], 'can_applied': values['can_id'], 'department': values['department_copy'], 
                 'upload_res': values['upload_res'], 'upload_res_name': values['upload_res_name'], 
-                'gender':values['gender']}
+                'gender':values['gender'], 'can_name': values['name'] }
         
         print(">>>>>>",vals)
 
