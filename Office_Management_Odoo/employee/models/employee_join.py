@@ -45,6 +45,11 @@ class EmployeeJoin(models.Model):
         result = super(EmployeeJoin, self).create(values)
     
         return result
+
+    def write(self, values):
+        print("-----------~~~~>>>>>>Write method working")
+        res = super(EmployeeJoin, self).write(values)
+        return res
     
     # def _pass_vals(self):
     #     vals = {
@@ -103,20 +108,20 @@ class EmployeeJoin(models.Model):
     # onchange fields 
 
     # department job description
-    dept_job_dec = fields.Html("Job Description", required=True)
+    dept_job_dec = fields.Html("Job Description", readonly=True)
 
     # years of experience required add string in selection field its mandatory 
     dept_exp = fields.Selection(
         string="Experience Required in years",
         selection=[('zero_to_one', '0-1'), ('two_three', '2-3'), ('three_five', '3-5'),
                    ('more_than_five', '>5')],
-        required=True)
+        readonly=True)
 
     # job type
     dept_job_type = fields.Selection(string="Job type", selection=[('intern', 'Intership'),
     ('full_time', 'Full Time'),
         ('wfh', 'Work from Home')],
-        required=True)
+        readonly=True)
 
     department_id = fields.Many2one(
         string='Applying to',
