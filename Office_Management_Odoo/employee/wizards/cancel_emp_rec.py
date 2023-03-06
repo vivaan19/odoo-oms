@@ -39,5 +39,5 @@ class CancelEmpRec(models.TransientModel):
 
         self.env['employee.join'].search([('id', '=', self.emp_id.id)]).unlink()
         
-        self.env["candidate.applied"].search([("id",'=',)])
+        # self.env["candidate.applied"].search([("id",'=',)])
         # print("-----------------",ids)

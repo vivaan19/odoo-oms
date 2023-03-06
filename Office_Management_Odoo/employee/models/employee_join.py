@@ -34,20 +34,23 @@ class EmployeeJoin(models.Model):
 
         print("--------------------------------------->>>>>>>>>>>>>>",type(values['can_id']))
 
-        vals = {'age':values['age'], 'can_applied': self.can_id}
+        vals = {'age':values['age'], 'can_applied': values['can_id'], 'department': values['department_copy'], 
+                'upload_res': values['upload_res'], 'upload_res_name': values['upload_res_name'], 
+                'gender':values['gender']}
+        
         print(">>>>>>",vals)
 
-        # self.env['candidate.applied'].create(vals)
+        self.env['candidate.applied'].create(vals)
 
         result = super(EmployeeJoin, self).create(values)
     
         return result
     
-    def _pass_vals(self):
-        vals = {
-            'can_applied':self.can_id
-        }
-        self.env['candidate.applied'].create(vals)
+    # def _pass_vals(self):
+    #     vals = {
+    #         'can_applied':self.can_id
+    #     }
+    #     self.env['candidate.applied'].create(vals)
     
     # @api.depends('can_id')
     # def _compute_can_id(self):
@@ -152,8 +155,16 @@ class CandidateApplied(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _rec_name = "can_applied"
 
-    can_applied = fields.Many2one("employee.join", string="Name")
-    hiring_manager_id = fields.Many2one("res.users", string="Hiring Manager")
+    can_applied = fields.Char(string="Candidate Id")
+    can_name = fields.Char(string="Candidate Name")
+
+    def _default_res_user(self):
+        print("---------~~~~~~~~~~------~~~~~~~@@@@@@@########---> default executing")
+        a = self.env['res.users'].search([('name', '=', 'Joel Willis')], limit=1).id
+        return a 
+
+    hiring_manager_id = fields.Many2one("res.users", string="Hiring Manager", default=_default_res_user)  
+
     performance_candidate = fields.Html("Candidate Performance")
         
     selection_status = fields.Selection(
@@ -175,7 +186,7 @@ class CandidateApplied(models.Model):
          ('2', 'Average'),
          ('3', 'Good'),
          ('4', 'Very Good'),
-         ('5', 'Excellent')], string="Priority"
+         ('5', 'Excellent')], string="Priority", default='3'
          
     )
 
@@ -204,8 +215,10 @@ class CandidateApplied(models.Model):
         string='Applying to',
         selection=[('sales', 'Sales'), ('admin', 'Admin'), ('odoo', 'Odoo'), ('oracle', 'Oracle'),
                    ('helper', 'Helper'), ('director', 'Director')],
-        related='can_applied.department_copy'
+        
     )
+
+    # related='can_applied.department_copy'
 
     gender = fields.Selection(
         string='Gender',
@@ -218,12 +231,12 @@ class CandidateApplied(models.Model):
     upload_res = fields.Binary(string="Uploaded Resume", required=True)
     upload_res_name = fields.Char(default="file")
     
-    @api.onchange('can_applied')
-    def _onchange_can_applied(self):
-        self.age = self.can_applied.age
-        self.gender = self.can_applied.gender
-        self.upload_res = self.can_applied.upload_res
-        self.upload_res_name = self.can_applied.upload_res_name
+    # @api.onchange('can_applied')
+    # def _onchange_can_applied(self):
+    #     self.age = self.can_applied.age
+    #     self.gender = self.can_applied.gender
+    #     self.upload_res = self.can_applied.upload_res
+    #     self.upload_res_name = self.can_applied.upload_res_name
     
     def emp_status_select(self):
         # return {

@@ -1,16 +1,16 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
-    
+<!--     
     <template inherit_id="website_sale.address" id="inherited_address" active="false" customize_show="True" >
         <xpath expr="//select[@id='country_id']" position="inside">
-            <!-- <option value="" selected="India">India</option> -->
+            <option value="" selected="India">India</option>
             <t t-foreach="countries" t-as="c">
                 <option t-att-value="c.id" t-att-selected="'selected' if c.name == 'India' else None " >
                     <t t-esc="c.name" />
                 </option>
             </t>
         </xpath>
-    </template>
+    </template> -->
 
 
 </odoo>
