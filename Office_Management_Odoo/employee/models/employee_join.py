@@ -34,9 +34,9 @@ class EmployeeJoin(models.Model):
 
         print("--------------------------------------->>>>>>>>>>>>>>",type(values['can_id']))
 
-        vals = {'age':values['age'], 'can_applied': values['can_id'], 'department': values['department_copy'], 
+        vals = {'age':values['age'], 'can_id': values['can_id'], 'department_copy': values['department_copy'], 
                 'upload_res': values['upload_res'], 'upload_res_name': values['upload_res_name'], 
-                'gender':values['gender'], 'can_name': values['name'] }
+                'gender':values['gender'], 'name': values['name'], 'b_date': values['b_date']}
         
         print(">>>>>>",vals)
 
@@ -47,8 +47,21 @@ class EmployeeJoin(models.Model):
         return result
 
     def write(self, values):
-        print("-----------~~~~>>>>>>Write method working")
         res = super(EmployeeJoin, self).write(values)
+        
+        print("-----------~~~~>>>>>>Write method working values ---", values)
+
+        print("----->>>>>>>>----- candidate id", self.can_id)
+        print("----->>>>>>>>----- type candidate id", type(self.can_id))
+
+
+
+        # orm method to update the record in candidate review 
+
+        can_review = self.env['candidate.applied'].search([('can_id', '=', self.can_id)]).write(values)
+
+        print("------>>>>>>>>>>>> updated record", can_review)
+        
         return res
     
     # def _pass_vals(self):
@@ -108,20 +121,20 @@ class EmployeeJoin(models.Model):
     # onchange fields 
 
     # department job description
-    dept_job_dec = fields.Html("Job Description", readonly=True)
+    dept_job_dec = fields.Html("Job Description")
 
     # years of experience required add string in selection field its mandatory 
     dept_exp = fields.Selection(
         string="Experience Required in years",
         selection=[('zero_to_one', '0-1'), ('two_three', '2-3'), ('three_five', '3-5'),
                    ('more_than_five', '>5')],
-        readonly=True)
+    )
 
     # job type
     dept_job_type = fields.Selection(string="Job type", selection=[('intern', 'Intership'),
     ('full_time', 'Full Time'),
         ('wfh', 'Work from Home')],
-        readonly=True)
+    )
 
     department_id = fields.Many2one(
         string='Applying to',
@@ -158,10 +171,13 @@ class CandidateApplied(models.Model):
     _name = "candidate.applied"
     _description = "This model allows to review candidates"
     _inherit = ['mail.thread', 'mail.activity.mixin']
-    _rec_name = "can_applied"
+    _rec_name = "can_id"
 
-    can_applied = fields.Char(string="Candidate Id")
-    can_name = fields.Char(string="Candidate Name")
+    can_id = fields.Char(string="Candidate Id")
+    name = fields.Char(string="Candidate Name")
+    
+    b_date = fields.Date(string="Birthdate", tracking=True)
+
 
     def _default_res_user(self):
         print("---------~~~~~~~~~~------~~~~~~~@@@@@@@########---> default executing")
@@ -181,7 +197,7 @@ class CandidateApplied(models.Model):
         required=True,
         tracking=True,
         default='not_selected',
-        readonly=True
+    
         
     )
 
@@ -208,7 +224,7 @@ class CandidateApplied(models.Model):
         string="Status",
         default="resume_received",
         required=True,
-        # readonly=True
+        #
 
     )
 
@@ -216,7 +232,7 @@ class CandidateApplied(models.Model):
     age = fields.Char(
         "Age", default="Not Specified birthdate", tracking=True)
 
-    department = fields.Selection(
+    department_copy = fields.Selection(
         string='Applying to',
         selection=[('sales', 'Sales'), ('admin', 'Admin'), ('odoo', 'Odoo'), ('oracle', 'Oracle'),
                    ('helper', 'Helper'), ('director', 'Director')],

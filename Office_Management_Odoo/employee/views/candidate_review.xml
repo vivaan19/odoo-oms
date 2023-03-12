@@ -66,10 +66,10 @@
 
                     <group>
                         <group>
-                            <field name="can_applied" />
-                            <field name="can_name"/>
+                            <field name="can_id" />
+                            <field name="name"/>
                             <field name="age" />
-                            <field name="department" />
+                            <field name="department_copy" />
                             <field name="gender" />
                         </group>
 
@@ -119,10 +119,10 @@
             multi_edit = "1"
             sample="1"
             >
-                <field name="can_applied" />
-                <field name="can_name"/>
+                <field name="can_id" />
+                <field name="name"/>
                 <field name="priority" widget="badge"/>
-                <field name="department" />
+                <field name="department_copy" />
                 <field name="activity_ids" widget="list_activity"></field>
 
                 <!-- optional fields for dynamic tree view -->
@@ -162,7 +162,7 @@
         <field name="model">candidate.applied</field>
         <field name="arch" type="xml">
             <activity string="Review Candidates Activity View">
-                <field name="can_applied"></field>
+                <field name="can_id"></field>
                 <!-- <field name="hiring_manager_id"></field> -->
                 <templates>
                     <img t-att-src="activity_image('candidate.applied', 'image', record.hiring_manager_id.raw_value)" t-att-title="record.hiring_manager_id" alt="alt"></img>
