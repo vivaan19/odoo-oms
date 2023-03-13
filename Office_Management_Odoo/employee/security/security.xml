@@ -17,10 +17,22 @@
 
     <!-- this group is called admin -->
     <record id="group_office_admin" model="res.groups">
-        <field name="name"> Office Adminstrator </field>
+        <field name="name"> Office Administrator </field>
         <field name="category_id" ref="module_category_office_management"/>
         <!-- <field name="implied_ids" eval="[(4, ref('group_office_candidate'))]"/> -->
     </record>
 
+    <!-- do in xml -->
+    <!-- create record rules -->
+    <!-- the record rules are used to see only those records which is created by that user -->
+    
+    <!-- this is a security rule which means that user who has created the record can only view it -->
+    <!-- domain force is the place where the rule is applied -->
+    <record id="record_rules" model="ir.rule">
+        <field name="name">candidate apply rule</field>
+        <field name="model_id" ref="employee.model_employee_join"></field>
+        <field name="domain_force">[('create_uid', '=', user.id)]</field>
+        <!-- <field name="groups" eval="[(4, ref('')]"></field> -->
+    </record>
 
 </odoo>
