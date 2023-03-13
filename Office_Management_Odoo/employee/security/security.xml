@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- making office management category where all groups will be stored -->
+    <record id="module_category_office_management" model="ir.module.category">
+        <field name="name"> Office Management </field>
+        <field name="sequence">-1</field>
+        <field name="description">Category for office management</field>
+    </record>
+
+    <!-- this group is called candidate -->
+    <record id="group_office_candidate" model="res.groups">
+        <field name="name"> General Candidate </field>
+        <field name="category_id" ref="module_category_office_management"/>
+        <!-- <field name="implied_ids" eval="[(4, ref('module_category_office_management'))]"/> -->
+    </record>
+
+    <!-- this group is called admin -->
+    <record id="group_office_admin" model="res.groups">
+        <field name="name"> Office Adminstrator </field>
+        <field name="category_id" ref="module_category_office_management"/>
+        <!-- <field name="implied_ids" eval="[(4, ref('group_office_candidate'))]"/> -->
+    </record>
+
+
+</odoo>

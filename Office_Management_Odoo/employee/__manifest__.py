@@ -12,6 +12,7 @@
 
     'data' : [
         # always load security, views, menu
+        'security/security.xml',
         'security/ir.model.access.csv',
         'data/sequence_data.xml',
         'wizards/cancel_emp_transient_model.xml',
