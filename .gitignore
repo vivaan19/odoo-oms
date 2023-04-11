@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# BSPL folder
+beyond_rlpl/
+
 # Distribution / packaging
 .Python
 build/
