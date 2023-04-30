@@ -9,6 +9,9 @@ __pycache__/
 # BSPL folder
 beyond_rlpl/
 
+# pos restrict module 
+pos_user_restrict_26/
+
 # Distribution / packaging
 .Python
 build/
